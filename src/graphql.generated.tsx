@@ -4,6 +4,7 @@ import * as React from 'react';
 import * as ApolloReactComponents from '@apollo/react-components';
 import * as ApolloReactHooks from '@apollo/react-hooks';
 export type Maybe<T> = T | null;
+export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -18,1043 +19,21 @@ export type Scalars = {
   ObjectId: any;
 };
 
-export type About = {
-   __typename?: 'About';
-  name?: Maybe<Scalars['String']>;
-  git?: Maybe<Git>;
-};
-
-export type AccountActivity = {
-   __typename?: 'AccountActivity';
-  _id?: Maybe<Scalars['ObjectId']>;
-  type?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  account_id?: Maybe<Scalars['String']>;
-  created_by?: Maybe<Scalars['String']>;
-  created_date?: Maybe<Scalars['Date']>;
-  hidden?: Maybe<BooleanUpdate>;
-};
-
-export type AndroidVerifyReceipt = {
-   __typename?: 'AndroidVerifyReceipt';
-  status?: Maybe<Scalars['Int']>;
-  environment?: Maybe<Scalars['String']>;
-};
-
-export type BackgroundLocation = {
-   __typename?: 'BackgroundLocation';
-  _id?: Maybe<Scalars['ObjectId']>;
-  uid?: Maybe<Scalars['String']>;
-  accuracy?: Maybe<Scalars['Float']>;
-  latitude?: Maybe<Scalars['Float']>;
-  longitude?: Maybe<Scalars['Float']>;
-  altitude?: Maybe<Scalars['Float']>;
-  altitudeAccuracy?: Maybe<Scalars['Float']>;
-  heading?: Maybe<Scalars['Float']>;
-  speed?: Maybe<Scalars['Float']>;
-  timestamp?: Maybe<Scalars['Float']>;
-  yyyymmddhh?: Maybe<Scalars['Int']>;
-  yyyymmdd?: Maybe<Scalars['Int']>;
-  date?: Maybe<Scalars['Date']>;
-  platform?: Maybe<Scalars['String']>;
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-};
-
-export type BackgroundLocationFilter = {
-  date?: Maybe<DateFilter>;
-  timestamp?: Maybe<FloatFilter>;
-  yyyymmddhh?: Maybe<IntFilter>;
-  yyyymmdd?: Maybe<IntFilter>;
-  latitude?: Maybe<FloatFilter>;
-  longitude?: Maybe<FloatFilter>;
-};
-
-export type BackgroundLocationInput = {
-  accuracy?: Maybe<Scalars['Float']>;
-  latitude?: Maybe<Scalars['Float']>;
-  longitude?: Maybe<Scalars['Float']>;
-  altitude?: Maybe<Scalars['Float']>;
-  altitudeAccuracy?: Maybe<Scalars['Float']>;
-  heading?: Maybe<Scalars['Float']>;
-  speed?: Maybe<Scalars['Float']>;
-  timestamp?: Maybe<Scalars['Float']>;
-  platform?: Maybe<Scalars['String']>;
-};
-
-export type BackgroundLocationPage = {
-   __typename?: 'BackgroundLocationPage';
-  total: Scalars['Int'];
-  data?: Maybe<Array<Maybe<BackgroundLocation>>>;
-};
-
-export type BackgroundRegion = {
-   __typename?: 'BackgroundRegion';
-  _id?: Maybe<Scalars['ObjectId']>;
-  uid?: Maybe<Scalars['String']>;
-  accuracy?: Maybe<Scalars['Float']>;
-  latitude?: Maybe<Scalars['Float']>;
-  longitude?: Maybe<Scalars['Float']>;
-  altitude?: Maybe<Scalars['Float']>;
-  altitudeAccuracy?: Maybe<Scalars['Float']>;
-  heading?: Maybe<Scalars['Float']>;
-  speed?: Maybe<Scalars['Float']>;
-  regionIdentifier?: Maybe<Scalars['String']>;
-  regionLatitude?: Maybe<Scalars['Float']>;
-  regionLongitude?: Maybe<Scalars['Float']>;
-  regionRadius?: Maybe<Scalars['Float']>;
-  regionState?: Maybe<Scalars['Int']>;
-  timestamp?: Maybe<Scalars['Float']>;
-  yyyymmddhh?: Maybe<Scalars['Int']>;
-  yyyymmdd?: Maybe<Scalars['Int']>;
-  date?: Maybe<Scalars['Date']>;
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-};
-
-export type BackgroundRegionFilter = {
-  date?: Maybe<DateFilter>;
-  timestamp?: Maybe<FloatFilter>;
-  yyyymmddhh?: Maybe<IntFilter>;
-  yyyymmdd?: Maybe<IntFilter>;
-  latitude?: Maybe<FloatFilter>;
-  longitude?: Maybe<FloatFilter>;
-  regionLatitude?: Maybe<FloatFilter>;
-  regionLongitude?: Maybe<FloatFilter>;
-};
-
-export type BackgroundRegionInput = {
-  identifier?: Maybe<Scalars['String']>;
-  latitude?: Maybe<Scalars['Float']>;
-  longitude?: Maybe<Scalars['Float']>;
-  radius?: Maybe<Scalars['Float']>;
-  state?: Maybe<Scalars['Int']>;
-};
-
-export type BackgroundRegionPage = {
-   __typename?: 'BackgroundRegionPage';
-  total: Scalars['Int'];
-  data?: Maybe<Array<Maybe<BackgroundRegion>>>;
-};
-
-export type BooleanUpdate = {
-   __typename?: 'BooleanUpdate';
-  previous?: Maybe<Scalars['Boolean']>;
-  current?: Maybe<Scalars['Boolean']>;
-};
-
-export type CardUser = {
-   __typename?: 'CardUser';
-  _id?: Maybe<Scalars['ObjectId']>;
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  email?: Maybe<Scalars['String']>;
-  displayName?: Maybe<Scalars['String']>;
-  photoURL?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  config?: Maybe<UserConfig>;
-  settings?: Maybe<UserSettings>;
-  getAccessTokens?: Maybe<Array<Maybe<PlaidAccessToken>>>;
-  getCachedTransactions?: Maybe<PlaidTransactionsResponse>;
-  getSubscriptionHistory?: Maybe<InAppSubscriptionPage>;
-  getSubscriptionErrorHistory?: Maybe<InAppSubscriptionErrorPage>;
-  backgroundLocations?: Maybe<BackgroundLocationPage>;
-  devices?: Maybe<CardUserDevicePage>;
-};
-
-
-export type CardUserGetCachedTransactionsArgs = {
-  startDate?: Maybe<Scalars['Date']>;
-  endDate?: Maybe<Scalars['Date']>;
-  page?: Maybe<Scalars['Int']>;
-  perPage?: Maybe<Scalars['Int']>;
-};
-
-
-export type CardUserGetSubscriptionHistoryArgs = {
-  pagination?: Maybe<Pagination>;
-  sort?: Maybe<Sort>;
-};
-
-
-export type CardUserGetSubscriptionErrorHistoryArgs = {
-  pagination?: Maybe<Pagination>;
-  sort?: Maybe<Sort>;
-};
-
-
-export type CardUserBackgroundLocationsArgs = {
-  filter?: Maybe<BackgroundLocationFilter>;
-  pagination?: Maybe<Pagination>;
-  sort?: Maybe<Sort>;
-};
-
-
-export type CardUserDevicesArgs = {
-  pagination?: Maybe<Pagination>;
-  sort?: Maybe<Sort>;
-};
-
-export type CardUserDevice = {
-   __typename?: 'CardUserDevice';
-  _id?: Maybe<Scalars['ObjectId']>;
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  active?: Maybe<Scalars['Boolean']>;
-  hidden?: Maybe<Scalars['Boolean']>;
-  email?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-};
-
-export type CardUserDevicePage = {
-   __typename?: 'CardUserDevicePage';
-  total?: Maybe<Scalars['Int']>;
-  data?: Maybe<Array<Maybe<CardUserDevice>>>;
-};
-
-export type CardUserFilter = {
-  deviceId?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  email?: Maybe<Scalars['String']>;
-};
-
-export type CardUserInfoInput = {
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-};
-
-export type CardUserListResult = {
-   __typename?: 'CardUserListResult';
-  total?: Maybe<Scalars['Int']>;
-  data?: Maybe<Array<CardUser>>;
-};
-
-export type CardUserResult = {
-   __typename?: 'CardUserResult';
-  created?: Maybe<Scalars['Boolean']>;
-  cardUser?: Maybe<CardUser>;
-};
-
-export type Cause = {
-   __typename?: 'Cause';
-  error_type?: Maybe<Scalars['String']>;
-  error_code?: Maybe<Scalars['String']>;
-  error_message?: Maybe<Scalars['String']>;
-  display_message?: Maybe<Scalars['String']>;
-  item_id?: Maybe<Scalars['String']>;
-};
-
-export type ClassifyTransactionResult = {
-   __typename?: 'ClassifyTransactionResult';
-  transaction_id?: Maybe<Scalars['String']>;
-  transaction?: Maybe<PlaidTransaction>;
-  account?: Maybe<PlaidAccount>;
-  institution?: Maybe<PlaidInstitution>;
-  nearCount?: Maybe<Scalars['Int']>;
-  undeterminedCount?: Maybe<Scalars['Int']>;
-  duringCount?: Maybe<Scalars['Int']>;
-  previousValue?: Maybe<TransactionVerificationStatus>;
-  updatedValue?: Maybe<TransactionVerificationStatus>;
-  previousReason?: Maybe<Scalars['String']>;
-  updatedReason?: Maybe<Scalars['String']>;
-};
-
-export type Cpu = {
-   __typename?: 'CPU';
-  value?: Maybe<Scalars['Float']>;
-};
-
-
-export type DateFilter = {
-  EQ?: Maybe<Scalars['Date']>;
-  GT?: Maybe<Scalars['Date']>;
-  GTE?: Maybe<Scalars['Date']>;
-  IN?: Maybe<Array<Maybe<Scalars['Date']>>>;
-  ALL?: Maybe<Array<Maybe<Scalars['Date']>>>;
-  LT?: Maybe<Scalars['Date']>;
-  LTE?: Maybe<Scalars['Date']>;
-  NE?: Maybe<Scalars['Date']>;
-  NIN?: Maybe<Array<Maybe<Scalars['Date']>>>;
-};
-
-export type ExpoPushToken = {
-   __typename?: 'ExpoPushToken';
-  _id?: Maybe<Scalars['ObjectId']>;
-  userId?: Maybe<Scalars['String']>;
-  token?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  os?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-};
-
-export type ExpoPushTokenReceipt = {
-   __typename?: 'ExpoPushTokenReceipt';
-  _id?: Maybe<Scalars['ObjectId']>;
-  userId?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  notificationType?: Maybe<Scalars['String']>;
-  ticketId?: Maybe<Scalars['String']>;
-  canonicalRegistrationTokenCount?: Maybe<Scalars['Int']>;
-  multicastId?: Maybe<Scalars['Float']>;
-  successCount?: Maybe<Scalars['Int']>;
-  failureCount?: Maybe<Scalars['Int']>;
-  status?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-  payloadData?: Maybe<ExpoPushTokenReceiptPayload>;
-  results?: Maybe<Array<Maybe<MessagingDeviceResult>>>;
-  details?: Maybe<ExpoPushTokenReceiptDetails>;
-};
-
-export type ExpoPushTokenReceiptDetails = {
-   __typename?: 'ExpoPushTokenReceiptDetails';
-  error?: Maybe<Scalars['String']>;
-};
-
-export type ExpoPushTokenReceiptPayload = {
-   __typename?: 'ExpoPushTokenReceiptPayload';
-  verify_transaction_id?: Maybe<Scalars['String']>;
-};
-
-export type FirebaseError = {
-   __typename?: 'FirebaseError';
-  code?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-};
-
 export type FirebaseUser = {
-   __typename?: 'FirebaseUser';
+  __typename?: 'FirebaseUser';
   uid: Scalars['String'];
   email?: Maybe<Scalars['String']>;
   photoURL?: Maybe<Scalars['String']>;
   permissions?: Maybe<Permissions>;
 };
 
-export type FloatFilter = {
-  EQ?: Maybe<Scalars['Float']>;
-  GT?: Maybe<Scalars['Float']>;
-  GTE?: Maybe<Scalars['Float']>;
-  IN?: Maybe<Array<Maybe<Scalars['Float']>>>;
-  ALL?: Maybe<Array<Maybe<Scalars['Float']>>>;
-  LT?: Maybe<Scalars['Float']>;
-  LTE?: Maybe<Scalars['Float']>;
-  NE?: Maybe<Scalars['Float']>;
-  NIN?: Maybe<Array<Maybe<Scalars['Float']>>>;
-};
-
-export type FloatUpdate = {
-   __typename?: 'FloatUpdate';
-  previous?: Maybe<Scalars['Float']>;
-  current?: Maybe<Scalars['Float']>;
-};
-
-export type Git = {
-   __typename?: 'Git';
-  sha?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-};
-
-export type InAppSubscription = {
-   __typename?: 'InAppSubscription';
-  _id?: Maybe<Scalars['ObjectId']>;
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  productId?: Maybe<Scalars['String']>;
-  transactionId?: Maybe<Scalars['String']>;
-  transactionDate?: Maybe<Scalars['Date']>;
-  transactionReceipt?: Maybe<Scalars['String']>;
-  purchaseToken?: Maybe<Scalars['String']>;
-  dataAndroid?: Maybe<Scalars['String']>;
-  signatureAndroid?: Maybe<Scalars['String']>;
-  autoRenewingAndroid?: Maybe<Scalars['Boolean']>;
-  purchaseStateAndroid?: Maybe<Scalars['Int']>;
-  originalTransactionDateIOS?: Maybe<Scalars['Date']>;
-  originalTransactionIdentifierIOS?: Maybe<Scalars['String']>;
-  isAcknowledgedAndroid?: Maybe<Scalars['Boolean']>;
-  verified?: Maybe<Scalars['Boolean']>;
-  isTrialPeriod?: Maybe<Scalars['Boolean']>;
-};
-
-export type InAppSubscriptionError = {
-   __typename?: 'InAppSubscriptionError';
-  _id?: Maybe<Scalars['ObjectId']>;
-  os?: Maybe<Scalars['String']>;
-  device?: Maybe<Scalars['String']>;
-  deviceId?: Maybe<Scalars['String']>;
-  deviceType?: Maybe<Scalars['String']>;
-  userAgent?: Maybe<Scalars['String']>;
-  referrer?: Maybe<Scalars['String']>;
-  ip?: Maybe<Scalars['String']>;
-  host?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  responseCode?: Maybe<Scalars['Int']>;
-  debugMessage?: Maybe<Scalars['String']>;
-  code?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-};
-
-export type InAppSubscriptionErrorInput = {
-  responseCode?: Maybe<Scalars['Int']>;
-  debugMessage?: Maybe<Scalars['String']>;
-  code?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-};
-
-export type InAppSubscriptionErrorPage = {
-   __typename?: 'InAppSubscriptionErrorPage';
-  total?: Maybe<Scalars['Int']>;
-  data?: Maybe<Array<Maybe<InAppSubscriptionError>>>;
-};
-
-export type InAppSubscriptionInput = {
-  productId?: Maybe<Scalars['String']>;
-  transactionId?: Maybe<Scalars['String']>;
-  transactionDate?: Maybe<Scalars['Date']>;
-  transactionReceipt?: Maybe<Scalars['String']>;
-  purchaseToken?: Maybe<Scalars['String']>;
-  dataAndroid?: Maybe<Scalars['String']>;
-  signatureAndroid?: Maybe<Scalars['String']>;
-  autoRenewingAndroid?: Maybe<Scalars['Boolean']>;
-  purchaseStateAndroid?: Maybe<Scalars['Int']>;
-  originalTransactionDateIOS?: Maybe<Scalars['Date']>;
-  originalTransactionIdentifierIOS?: Maybe<Scalars['String']>;
-  isAcknowledgedAndroid?: Maybe<Scalars['Boolean']>;
-};
-
-export type InAppSubscriptionPage = {
-   __typename?: 'InAppSubscriptionPage';
-  total?: Maybe<Scalars['Int']>;
-  data?: Maybe<Array<Maybe<InAppSubscription>>>;
-};
-
-export type IntFilter = {
-  EQ?: Maybe<Scalars['Int']>;
-  GT?: Maybe<Scalars['Int']>;
-  GTE?: Maybe<Scalars['Int']>;
-  IN?: Maybe<Array<Maybe<Scalars['Int']>>>;
-  ALL?: Maybe<Array<Maybe<Scalars['Int']>>>;
-  LT?: Maybe<Scalars['Int']>;
-  LTE?: Maybe<Scalars['Int']>;
-  NE?: Maybe<Scalars['Int']>;
-  NIN?: Maybe<Array<Maybe<Scalars['Int']>>>;
-};
-
-export type IntUpdate = {
-   __typename?: 'IntUpdate';
-  previous?: Maybe<Scalars['Int']>;
-  current?: Maybe<Scalars['Int']>;
-};
-
-export type IosLatestReceiptInfo = {
-   __typename?: 'IosLatestReceiptInfo';
-  quantity?: Maybe<Scalars['String']>;
-  product_id?: Maybe<Scalars['String']>;
-  transaction_id?: Maybe<Scalars['String']>;
-  original_transaction_id?: Maybe<Scalars['String']>;
-  purchase_date?: Maybe<Scalars['String']>;
-  purchase_date_ms?: Maybe<Scalars['String']>;
-  purchase_date_pst?: Maybe<Scalars['String']>;
-  original_purchase_date?: Maybe<Scalars['String']>;
-  original_purchase_date_ms?: Maybe<Scalars['String']>;
-  original_purchase_date_pst?: Maybe<Scalars['String']>;
-  expires_date?: Maybe<Scalars['String']>;
-  expires_date_ms?: Maybe<Scalars['String']>;
-  expires_date_pst?: Maybe<Scalars['String']>;
-  web_order_line_item_id?: Maybe<Scalars['String']>;
-  is_trial_period?: Maybe<Scalars['String']>;
-  is_in_intro_offer_period?: Maybe<Scalars['String']>;
-  subscription_group_identifier?: Maybe<Scalars['String']>;
-};
-
-export type IosPendingRenewalInfo = {
-   __typename?: 'IosPendingRenewalInfo';
-  expiration_intent?: Maybe<Scalars['String']>;
-  auto_renew_product_id?: Maybe<Scalars['String']>;
-  original_transaction_id?: Maybe<Scalars['String']>;
-  is_in_billing_retry_period?: Maybe<Scalars['String']>;
-  product_id?: Maybe<Scalars['String']>;
-  auto_renew_status?: Maybe<Scalars['String']>;
-};
-
-export type IosReceipt = {
-   __typename?: 'IosReceipt';
-  receipt_type?: Maybe<Scalars['String']>;
-  adam_id?: Maybe<Scalars['Int']>;
-  app_item_id?: Maybe<Scalars['Int']>;
-  bundle_id?: Maybe<Scalars['String']>;
-  application_version?: Maybe<Scalars['String']>;
-  download_id?: Maybe<Scalars['Int']>;
-  version_external_identifier?: Maybe<Scalars['Int']>;
-  receipt_creation_date?: Maybe<Scalars['String']>;
-  receipt_creation_date_ms?: Maybe<Scalars['String']>;
-  receipt_creation_date_pst?: Maybe<Scalars['String']>;
-  request_date?: Maybe<Scalars['String']>;
-  request_date_ms?: Maybe<Scalars['String']>;
-  request_date_pst?: Maybe<Scalars['String']>;
-  original_purchase_date?: Maybe<Scalars['String']>;
-  original_purchase_date_ms?: Maybe<Scalars['String']>;
-  original_purchase_date_pst?: Maybe<Scalars['String']>;
-  original_application_version?: Maybe<Scalars['String']>;
-};
-
-export type IosVerifyReceipt = {
-   __typename?: 'IosVerifyReceipt';
-  status?: Maybe<Scalars['Int']>;
-  environment?: Maybe<Scalars['String']>;
-  receipt?: Maybe<IosReceipt>;
-  pending_renewal_info?: Maybe<Array<Maybe<IosPendingRenewalInfo>>>;
-  latest_receipt_info?: Maybe<Array<Maybe<IosLatestReceiptInfo>>>;
-};
-
-export type MessagingDeviceResult = {
-   __typename?: 'MessagingDeviceResult';
-  canonicalRegistrationToken?: Maybe<Scalars['String']>;
-  messageId?: Maybe<Scalars['String']>;
-  error?: Maybe<FirebaseError>;
-};
-
-export type Mutation = {
-   __typename?: 'Mutation';
-  locationPing?: Maybe<Scalars['Boolean']>;
-  regionPing?: Maybe<Scalars['Boolean']>;
-  subscribeToPush?: Maybe<Scalars['Boolean']>;
-  sendVerificationNotifications?: Maybe<Array<Maybe<ExpoPushTokenReceipt>>>;
-  setAccountHidden?: Maybe<PlaidAccount>;
-  setAccessToken?: Maybe<PlaidAccessToken>;
-  createPublicToken?: Maybe<PlaidAccessToken>;
-  updateWebhook?: Maybe<PlaidAccessToken>;
-  resetLogin?: Maybe<PlaidAccessToken>;
-  classifyTransaction?: Maybe<ClassifyTransactionResult>;
-  setTransactionVerificationStatus?: Maybe<PlaidTransaction>;
-  updateSettings?: Maybe<UserSettings>;
-  setDeviceHidden?: Maybe<CardUserDevice>;
-  getOrCreateUser?: Maybe<CardUserResult>;
-  saveUpdatedPurchaseReceipt?: Maybe<InAppSubscription>;
-  savePurchaseError?: Maybe<InAppSubscriptionError>;
-};
-
-
-export type MutationLocationPingArgs = {
-  locations: Array<BackgroundLocationInput>;
-  userInfo?: Maybe<CardUserInfoInput>;
-};
-
-
-export type MutationRegionPingArgs = {
-  region: BackgroundRegionInput;
-  location: BackgroundLocationInput;
-  userInfo?: Maybe<CardUserInfoInput>;
-};
-
-
-export type MutationSubscribeToPushArgs = {
-  token: Scalars['String'];
-  userInfo?: Maybe<CardUserInfoInput>;
-  os?: Maybe<Scalars['String']>;
-};
-
-
-export type MutationSendVerificationNotificationsArgs = {
-  transactionIds: Array<Scalars['String']>;
-};
-
-
-export type MutationSetAccountHiddenArgs = {
-  account_id: Scalars['String'];
-  hidden: Scalars['Boolean'];
-};
-
-
-export type MutationSetAccessTokenArgs = {
-  publicToken: Scalars['String'];
-};
-
-
-export type MutationCreatePublicTokenArgs = {
-  accessToken: Scalars['String'];
-};
-
-
-export type MutationUpdateWebhookArgs = {
-  accessToken: Scalars['String'];
-  webhook: Scalars['String'];
-};
-
-
-export type MutationResetLoginArgs = {
-  accessToken: Scalars['String'];
-};
-
-
-export type MutationClassifyTransactionArgs = {
-  transaction_id: Scalars['String'];
-  hourDelta?: Maybe<Scalars['Int']>;
-  dayDelta?: Maybe<Scalars['Int']>;
-  latDelta?: Maybe<Scalars['Float']>;
-  lonDelta?: Maybe<Scalars['Float']>;
-};
-
-
-export type MutationSetTransactionVerificationStatusArgs = {
-  transaction_id: Scalars['String'];
-  verification_status?: Maybe<TransactionVerificationStatus>;
-};
-
-
-export type MutationUpdateSettingsArgs = {
-  settings: UserSettingsInput;
-};
-
-
-export type MutationSetDeviceHiddenArgs = {
-  id: Scalars['ObjectId'];
-  hidden: Scalars['Boolean'];
-};
-
-
-export type MutationGetOrCreateUserArgs = {
-  userId: Scalars['String'];
-  userInfo?: Maybe<CardUserInfoInput>;
-};
-
-
-export type MutationSaveUpdatedPurchaseReceiptArgs = {
-  subscription: InAppSubscriptionInput;
-  userInfo?: Maybe<CardUserInfoInput>;
-};
-
-
-export type MutationSavePurchaseErrorArgs = {
-  error: InAppSubscriptionErrorInput;
-  userInfo?: Maybe<CardUserInfoInput>;
-};
-
-export type NotificationsFilter = {
-   __typename?: 'NotificationsFilter';
-  falsified?: Maybe<Scalars['Boolean']>;
-  verified?: Maybe<Scalars['Boolean']>;
-  undetermined?: Maybe<Scalars['Boolean']>;
-  pending?: Maybe<Scalars['Boolean']>;
-};
-
-export type NotificationsFilterInput = {
-  falsified?: Maybe<Scalars['Boolean']>;
-  verified?: Maybe<Scalars['Boolean']>;
-  undetermined?: Maybe<Scalars['Boolean']>;
-  pending?: Maybe<Scalars['Boolean']>;
-};
-
-
-export type ObjectIdFilter = {
-  EQ?: Maybe<Scalars['ObjectId']>;
-  GT?: Maybe<Scalars['ObjectId']>;
-  GTE?: Maybe<Scalars['ObjectId']>;
-  IN?: Maybe<Array<Maybe<Scalars['ObjectId']>>>;
-  ALL?: Maybe<Array<Maybe<Scalars['ObjectId']>>>;
-  LT?: Maybe<Scalars['ObjectId']>;
-  LTE?: Maybe<Scalars['ObjectId']>;
-  NE?: Maybe<Scalars['ObjectId']>;
-  NIN?: Maybe<Array<Maybe<Scalars['ObjectId']>>>;
-};
-
-export type Pagination = {
-  perPage?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
-};
-
 export type Permissions = {
-   __typename?: 'Permissions';
+  __typename?: 'Permissions';
   uid: Scalars['String'];
 };
 
-export type PlaidAccessToken = {
-   __typename?: 'PlaidAccessToken';
-  _id?: Maybe<Scalars['ObjectId']>;
-  userId?: Maybe<Scalars['String']>;
-  publicToken?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
-  itemId?: Maybe<Scalars['String']>;
-  env?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  item?: Maybe<PlaidItem>;
-  status?: Maybe<PlaidItemStatus>;
-  institution_id?: Maybe<Scalars['String']>;
-  institution?: Maybe<PlaidInstitution>;
-};
-
-export type PlaidAccount = {
-   __typename?: 'PlaidAccount';
-  _id?: Maybe<Scalars['ObjectId']>;
-  userId?: Maybe<Scalars['String']>;
-  env?: Maybe<Scalars['String']>;
-  last_sync?: Maybe<Scalars['Date']>;
-  created_date?: Maybe<Scalars['Date']>;
-  updated_date?: Maybe<Scalars['Date']>;
-  transactions_ready?: Maybe<Scalars['Boolean']>;
-  item_id?: Maybe<Scalars['String']>;
-  institution_id?: Maybe<Scalars['String']>;
-  hidden?: Maybe<Scalars['Boolean']>;
-  account_id?: Maybe<Scalars['String']>;
-  mask?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  official_name?: Maybe<Scalars['String']>;
-  subtype?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  verification_status?: Maybe<Scalars['String']>;
-  balances?: Maybe<PlaidAccountBalance>;
-};
-
-export type PlaidAccountBalance = {
-   __typename?: 'PlaidAccountBalance';
-  available?: Maybe<Scalars['Float']>;
-  current?: Maybe<Scalars['Float']>;
-  limit?: Maybe<Scalars['Float']>;
-  iso_currency_code?: Maybe<Scalars['String']>;
-  unofficial_currency_code?: Maybe<Scalars['String']>;
-};
-
-export type PlaidAccountsResponse = {
-   __typename?: 'PlaidAccountsResponse';
-  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
-  item?: Maybe<PlaidItem>;
-};
-
-export type PlaidAccountWithOwners = {
-   __typename?: 'PlaidAccountWithOwners';
-  account_id?: Maybe<Scalars['String']>;
-  mask?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  official_name?: Maybe<Scalars['String']>;
-  subtype?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  verification_status?: Maybe<Scalars['String']>;
-  balances?: Maybe<PlaidAccountBalance>;
-  owners?: Maybe<Array<Maybe<PlaidIdentity>>>;
-};
-
-export type PlaidAddress = {
-   __typename?: 'PlaidAddress';
-  data?: Maybe<PlaidAddressData>;
-  primary?: Maybe<Scalars['Boolean']>;
-};
-
-export type PlaidAddressData = {
-   __typename?: 'PlaidAddressData';
-  city?: Maybe<Scalars['String']>;
-  region?: Maybe<Scalars['String']>;
-  postal_code?: Maybe<Scalars['String']>;
-  street?: Maybe<Scalars['String']>;
-  country?: Maybe<Scalars['String']>;
-};
-
-export type PlaidCategory = {
-   __typename?: 'PlaidCategory';
-  group?: Maybe<Scalars['String']>;
-  hierarchy?: Maybe<Array<Maybe<Scalars['String']>>>;
-  category_id?: Maybe<Scalars['String']>;
-};
-
-export type PlaidCredential = {
-   __typename?: 'PlaidCredential';
-  label?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type PlaidEmail = {
-   __typename?: 'PlaidEmail';
-  data?: Maybe<Scalars['String']>;
-  primary?: Maybe<Scalars['Boolean']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type PlaidError = {
-   __typename?: 'PlaidError';
-  error_type?: Maybe<Scalars['String']>;
-  error_code?: Maybe<Scalars['String']>;
-  error_message?: Maybe<Scalars['String']>;
-  display_message?: Maybe<Scalars['String']>;
-  causes?: Maybe<Array<Maybe<Cause>>>;
-};
-
-export type PlaidHolding = {
-   __typename?: 'PlaidHolding';
-  account_id?: Maybe<Scalars['String']>;
-  security_id?: Maybe<Scalars['String']>;
-  institution_value?: Maybe<Scalars['Float']>;
-  institution_price?: Maybe<Scalars['Float']>;
-  quantity?: Maybe<Scalars['Float']>;
-  institution_price_as_of?: Maybe<Scalars['String']>;
-  cost_basis?: Maybe<Scalars['Float']>;
-  iso_currency_code?: Maybe<Scalars['String']>;
-  unofficial_currency_code?: Maybe<Scalars['String']>;
-};
-
-export type PlaidHoldingsResponse = {
-   __typename?: 'PlaidHoldingsResponse';
-  securities?: Maybe<Array<Maybe<PlaidSecurity>>>;
-  holdings?: Maybe<Array<Maybe<PlaidHolding>>>;
-};
-
-export type PlaidIdentity = {
-   __typename?: 'PlaidIdentity';
-  addresses?: Maybe<Array<Maybe<PlaidAddress>>>;
-  emails?: Maybe<Array<Maybe<PlaidEmail>>>;
-  names?: Maybe<Array<Maybe<Scalars['String']>>>;
-  phone_numbers?: Maybe<Array<Maybe<PlaidPhoneNumber>>>;
-};
-
-export type PlaidIdentityResponse = {
-   __typename?: 'PlaidIdentityResponse';
-  accounts?: Maybe<Array<Maybe<PlaidAccountWithOwners>>>;
-  item?: Maybe<PlaidItem>;
-};
-
-export type PlaidInstitution = {
-   __typename?: 'PlaidInstitution';
-  name?: Maybe<Scalars['String']>;
-  institution_id?: Maybe<Scalars['String']>;
-  country_codes?: Maybe<Array<Maybe<Scalars['String']>>>;
-  credentials?: Maybe<Array<Maybe<PlaidCredential>>>;
-  has_mfa?: Maybe<Scalars['Boolean']>;
-  mfa?: Maybe<Array<Maybe<Scalars['String']>>>;
-  products?: Maybe<Array<Maybe<Scalars['String']>>>;
-  routing_numbers?: Maybe<Array<Maybe<Scalars['String']>>>;
-  oauth?: Maybe<Scalars['Boolean']>;
-  status?: Maybe<PlaidInstitutionStatus>;
-  primary_color?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  logo?: Maybe<Scalars['String']>;
-  created_date?: Maybe<Scalars['Date']>;
-  updated_date?: Maybe<Scalars['Date']>;
-};
-
-export type PlaidInstitutionServiceStatus = {
-   __typename?: 'PlaidInstitutionServiceStatus';
-  status?: Maybe<Scalars['String']>;
-  last_status_change?: Maybe<Scalars['Date']>;
-  breakdown?: Maybe<PlaidInstitutionServiceStatusBreakDown>;
-};
-
-export type PlaidInstitutionServiceStatusBreakDown = {
-   __typename?: 'PlaidInstitutionServiceStatusBreakDown';
-  success?: Maybe<Scalars['Float']>;
-  error_plaid?: Maybe<Scalars['Float']>;
-  error_institution?: Maybe<Scalars['Float']>;
-};
-
-export type PlaidInstitutionsResponse = {
-   __typename?: 'PlaidInstitutionsResponse';
-  total?: Maybe<Scalars['Int']>;
-  institutions?: Maybe<Array<PlaidInstitution>>;
-};
-
-export type PlaidInstitutionStatus = {
-   __typename?: 'PlaidInstitutionStatus';
-  item_logins?: Maybe<PlaidInstitutionServiceStatus>;
-  transactions_updates?: Maybe<PlaidInstitutionServiceStatus>;
-  auth?: Maybe<PlaidInstitutionServiceStatus>;
-  balance?: Maybe<PlaidInstitutionServiceStatus>;
-  identity?: Maybe<PlaidInstitutionServiceStatus>;
-};
-
-export type PlaidInvestmentsResponse = {
-   __typename?: 'PlaidInvestmentsResponse';
-  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
-  securities?: Maybe<Array<Maybe<PlaidSecurity>>>;
-  item?: Maybe<PlaidItem>;
-};
-
-export type PlaidInvestmentTransaction = {
-   __typename?: 'PlaidInvestmentTransaction';
-  investment_transaction_id?: Maybe<Scalars['String']>;
-  account_id?: Maybe<Scalars['String']>;
-  security_id?: Maybe<Scalars['String']>;
-  cancel_transaction_id?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  name?: Maybe<Scalars['String']>;
-  quantity?: Maybe<Scalars['Float']>;
-  amount?: Maybe<Scalars['Float']>;
-  price?: Maybe<Scalars['Float']>;
-  fees?: Maybe<Scalars['Float']>;
-  type?: Maybe<Scalars['String']>;
-  iso_currency_code?: Maybe<Scalars['String']>;
-  unofficial_currency_code?: Maybe<Scalars['String']>;
-};
-
-export type PlaidInvestmentTransactionResponse = {
-   __typename?: 'PlaidInvestmentTransactionResponse';
-  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
-  securities?: Maybe<Array<Maybe<PlaidSecurity>>>;
-  item?: Maybe<PlaidItem>;
-  investment_transactions?: Maybe<Array<Maybe<PlaidInvestmentTransaction>>>;
-  total_investment_transactions?: Maybe<Scalars['Int']>;
-};
-
-export type PlaidItem = {
-   __typename?: 'PlaidItem';
-  _id?: Maybe<Scalars['ObjectId']>;
-  userId?: Maybe<Scalars['String']>;
-  env?: Maybe<Scalars['String']>;
-  created_date?: Maybe<Scalars['Date']>;
-  updated_date?: Maybe<Scalars['Date']>;
-  item_id?: Maybe<Scalars['String']>;
-  institution_id?: Maybe<Scalars['String']>;
-  available_products?: Maybe<Array<Maybe<Scalars['String']>>>;
-  billed_products?: Maybe<Array<Maybe<Scalars['String']>>>;
-  error?: Maybe<PlaidError>;
-  webhook?: Maybe<Scalars['String']>;
-  consent_expiration_time?: Maybe<Scalars['Date']>;
-  institution?: Maybe<PlaidInstitution>;
-};
-
-export type PlaidItemStatus = {
-   __typename?: 'PlaidItemStatus';
-  transactions?: Maybe<PlaidTransactionsStatus>;
-  last_webhook?: Maybe<PlaidWebhookStatus>;
-};
-
-export type PlaidPhoneNumber = {
-   __typename?: 'PlaidPhoneNumber';
-  data?: Maybe<Scalars['String']>;
-  primary?: Maybe<Scalars['Boolean']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type PlaidSecurity = {
-   __typename?: 'PlaidSecurity';
-  security_id?: Maybe<Scalars['String']>;
-  cusip?: Maybe<Scalars['String']>;
-  sedol?: Maybe<Scalars['String']>;
-  isin?: Maybe<Scalars['String']>;
-  institution_security_id?: Maybe<Scalars['String']>;
-  institution_id?: Maybe<Scalars['String']>;
-  proxy_security_id?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  ticker_symbol?: Maybe<Scalars['String']>;
-  is_cash_equivalent?: Maybe<Scalars['Boolean']>;
-  type?: Maybe<Scalars['String']>;
-  close_price?: Maybe<Scalars['Float']>;
-  close_price_as_of?: Maybe<Scalars['String']>;
-  iso_currency_code?: Maybe<Scalars['String']>;
-  unofficial_currency_code?: Maybe<Scalars['String']>;
-};
-
-export type PlaidTransaction = {
-   __typename?: 'PlaidTransaction';
-  _id?: Maybe<Scalars['ObjectId']>;
-  userId?: Maybe<Scalars['String']>;
-  env?: Maybe<Scalars['String']>;
-  last_sync?: Maybe<Scalars['Date']>;
-  created_date?: Maybe<Scalars['Date']>;
-  updated_date?: Maybe<Scalars['Date']>;
-  verification_date?: Maybe<Scalars['Date']>;
-  verification_status?: Maybe<TransactionVerificationStatus>;
-  verification_reason?: Maybe<Scalars['String']>;
-  verification_by?: Maybe<Scalars['String']>;
-  transaction_id?: Maybe<Scalars['String']>;
-  account_id?: Maybe<Scalars['String']>;
-  account_owner?: Maybe<Scalars['String']>;
-  amount?: Maybe<Scalars['Float']>;
-  iso_currency_code?: Maybe<Scalars['String']>;
-  unofficial_currency_code?: Maybe<Scalars['String']>;
-  category?: Maybe<Array<Maybe<Scalars['String']>>>;
-  category_id?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  location?: Maybe<PlaidTransactionLocation>;
-  name?: Maybe<Scalars['String']>;
-  payment_meta?: Maybe<PlaidTransactionPaymentMeta>;
-  pending?: Maybe<Scalars['Boolean']>;
-  pending_transaction_id?: Maybe<Scalars['String']>;
-  transaction_type?: Maybe<Scalars['String']>;
-};
-
-export type PlaidTransactionLocation = {
-   __typename?: 'PlaidTransactionLocation';
-  address?: Maybe<Scalars['String']>;
-  city?: Maybe<Scalars['String']>;
-  lat?: Maybe<Scalars['Float']>;
-  lon?: Maybe<Scalars['Float']>;
-  region?: Maybe<Scalars['String']>;
-  store_number?: Maybe<Scalars['String']>;
-  postal_code?: Maybe<Scalars['String']>;
-  country?: Maybe<Scalars['String']>;
-};
-
-export type PlaidTransactionPaymentMeta = {
-   __typename?: 'PlaidTransactionPaymentMeta';
-  by_order_of?: Maybe<Scalars['String']>;
-  payee?: Maybe<Scalars['String']>;
-  payer?: Maybe<Scalars['String']>;
-  payment_method?: Maybe<Scalars['String']>;
-  payment_processor?: Maybe<Scalars['String']>;
-  ppd_id?: Maybe<Scalars['String']>;
-  reason?: Maybe<Scalars['String']>;
-  reference_number?: Maybe<Scalars['String']>;
-};
-
-export type PlaidTransactionsResponse = {
-   __typename?: 'PlaidTransactionsResponse';
-  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
-  total_transactions?: Maybe<Scalars['Int']>;
-  transactions?: Maybe<Array<Maybe<PlaidTransaction>>>;
-  item?: Maybe<PlaidItem>;
-};
-
-export type PlaidTransactionsStatus = {
-   __typename?: 'PlaidTransactionsStatus';
-  last_successful_update?: Maybe<Scalars['String']>;
-  last_failed_update?: Maybe<Scalars['String']>;
-};
-
-export type PlaidWebhookStatus = {
-   __typename?: 'PlaidWebhookStatus';
-  sent_at?: Maybe<Scalars['String']>;
-  code_sent?: Maybe<Scalars['String']>;
-};
-
 export type Query = {
-   __typename?: 'Query';
+  __typename?: 'Query';
   me?: Maybe<FirebaseUser>;
   userById?: Maybe<FirebaseUser>;
   userByEmail?: Maybe<FirebaseUser>;
@@ -1260,9 +239,52 @@ export type QueryVerifyReceiptAndroidArgs = {
   receipt: Scalars['String'];
 };
 
+export type About = {
+  __typename?: 'About';
+  name?: Maybe<Scalars['String']>;
+  git?: Maybe<Git>;
+};
+
+export type Git = {
+  __typename?: 'Git';
+  sha?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type Pagination = {
+  perPage?: Maybe<Scalars['Int']>;
+  page?: Maybe<Scalars['Int']>;
+};
+
 export type Sort = {
   field?: Maybe<Scalars['String']>;
   order?: Maybe<Scalars['Int']>;
+};
+
+
+
+export type IntFilter = {
+  EQ?: Maybe<Scalars['Int']>;
+  GT?: Maybe<Scalars['Int']>;
+  GTE?: Maybe<Scalars['Int']>;
+  IN?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  ALL?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  LT?: Maybe<Scalars['Int']>;
+  LTE?: Maybe<Scalars['Int']>;
+  NE?: Maybe<Scalars['Int']>;
+  NIN?: Maybe<Array<Maybe<Scalars['Int']>>>;
+};
+
+export type FloatFilter = {
+  EQ?: Maybe<Scalars['Float']>;
+  GT?: Maybe<Scalars['Float']>;
+  GTE?: Maybe<Scalars['Float']>;
+  IN?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  ALL?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  LT?: Maybe<Scalars['Float']>;
+  LTE?: Maybe<Scalars['Float']>;
+  NE?: Maybe<Scalars['Float']>;
+  NIN?: Maybe<Array<Maybe<Scalars['Float']>>>;
 };
 
 export type StringFilter = {
@@ -1277,40 +299,677 @@ export type StringFilter = {
   NIN?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-export type StringUpdate = {
-   __typename?: 'StringUpdate';
-  previous?: Maybe<Scalars['String']>;
-  current?: Maybe<Scalars['String']>;
+export type DateFilter = {
+  EQ?: Maybe<Scalars['Date']>;
+  GT?: Maybe<Scalars['Date']>;
+  GTE?: Maybe<Scalars['Date']>;
+  IN?: Maybe<Array<Maybe<Scalars['Date']>>>;
+  ALL?: Maybe<Array<Maybe<Scalars['Date']>>>;
+  LT?: Maybe<Scalars['Date']>;
+  LTE?: Maybe<Scalars['Date']>;
+  NE?: Maybe<Scalars['Date']>;
+  NIN?: Maybe<Array<Maybe<Scalars['Date']>>>;
 };
 
-export type Subscription = {
-   __typename?: 'Subscription';
-  cpuUsage?: Maybe<Cpu>;
+export type ObjectIdFilter = {
+  EQ?: Maybe<Scalars['ObjectId']>;
+  GT?: Maybe<Scalars['ObjectId']>;
+  GTE?: Maybe<Scalars['ObjectId']>;
+  IN?: Maybe<Array<Maybe<Scalars['ObjectId']>>>;
+  ALL?: Maybe<Array<Maybe<Scalars['ObjectId']>>>;
+  LT?: Maybe<Scalars['ObjectId']>;
+  LTE?: Maybe<Scalars['ObjectId']>;
+  NE?: Maybe<Scalars['ObjectId']>;
+  NIN?: Maybe<Array<Maybe<Scalars['ObjectId']>>>;
 };
 
-export type TransactionActivity = {
-   __typename?: 'TransactionActivity';
+export type BackgroundLocation = {
+  __typename?: 'BackgroundLocation';
   _id?: Maybe<Scalars['ObjectId']>;
-  type?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  transaction_id?: Maybe<Scalars['String']>;
-  pending_transaction_id?: Maybe<StringUpdate>;
-  verification_status?: Maybe<StringUpdate>;
-  verification_reason?: Maybe<StringUpdate>;
-  verification_by?: Maybe<StringUpdate>;
-  created_by?: Maybe<Scalars['String']>;
-  created_date?: Maybe<Scalars['Date']>;
+  uid?: Maybe<Scalars['String']>;
+  accuracy?: Maybe<Scalars['Float']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
+  altitude?: Maybe<Scalars['Float']>;
+  altitudeAccuracy?: Maybe<Scalars['Float']>;
+  heading?: Maybe<Scalars['Float']>;
+  speed?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  yyyymmddhh?: Maybe<Scalars['Int']>;
+  yyyymmdd?: Maybe<Scalars['Int']>;
+  date?: Maybe<Scalars['Date']>;
+  platform?: Maybe<Scalars['String']>;
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
 };
 
-export type TransactionActivityPage = {
-   __typename?: 'TransactionActivityPage';
-  total?: Maybe<Scalars['Int']>;
-  data?: Maybe<Array<Maybe<TransactionActivity>>>;
+export type BackgroundRegion = {
+  __typename?: 'BackgroundRegion';
+  _id?: Maybe<Scalars['ObjectId']>;
+  uid?: Maybe<Scalars['String']>;
+  accuracy?: Maybe<Scalars['Float']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
+  altitude?: Maybe<Scalars['Float']>;
+  altitudeAccuracy?: Maybe<Scalars['Float']>;
+  heading?: Maybe<Scalars['Float']>;
+  speed?: Maybe<Scalars['Float']>;
+  regionIdentifier?: Maybe<Scalars['String']>;
+  regionLatitude?: Maybe<Scalars['Float']>;
+  regionLongitude?: Maybe<Scalars['Float']>;
+  regionRadius?: Maybe<Scalars['Float']>;
+  regionState?: Maybe<Scalars['Int']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  yyyymmddhh?: Maybe<Scalars['Int']>;
+  yyyymmdd?: Maybe<Scalars['Int']>;
+  date?: Maybe<Scalars['Date']>;
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
 };
+
+export type BackgroundLocationPage = {
+  __typename?: 'BackgroundLocationPage';
+  total: Scalars['Int'];
+  data?: Maybe<Array<Maybe<BackgroundLocation>>>;
+};
+
+export type BackgroundRegionPage = {
+  __typename?: 'BackgroundRegionPage';
+  total: Scalars['Int'];
+  data?: Maybe<Array<Maybe<BackgroundRegion>>>;
+};
+
+export type BackgroundLocationFilter = {
+  date?: Maybe<DateFilter>;
+  timestamp?: Maybe<FloatFilter>;
+  yyyymmddhh?: Maybe<IntFilter>;
+  yyyymmdd?: Maybe<IntFilter>;
+  latitude?: Maybe<FloatFilter>;
+  longitude?: Maybe<FloatFilter>;
+};
+
+export type BackgroundLocationInput = {
+  accuracy?: Maybe<Scalars['Float']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
+  altitude?: Maybe<Scalars['Float']>;
+  altitudeAccuracy?: Maybe<Scalars['Float']>;
+  heading?: Maybe<Scalars['Float']>;
+  speed?: Maybe<Scalars['Float']>;
+  timestamp?: Maybe<Scalars['Float']>;
+  platform?: Maybe<Scalars['String']>;
+};
+
+export type BackgroundRegionFilter = {
+  date?: Maybe<DateFilter>;
+  timestamp?: Maybe<FloatFilter>;
+  yyyymmddhh?: Maybe<IntFilter>;
+  yyyymmdd?: Maybe<IntFilter>;
+  latitude?: Maybe<FloatFilter>;
+  longitude?: Maybe<FloatFilter>;
+  regionLatitude?: Maybe<FloatFilter>;
+  regionLongitude?: Maybe<FloatFilter>;
+};
+
+export type BackgroundRegionInput = {
+  identifier?: Maybe<Scalars['String']>;
+  latitude?: Maybe<Scalars['Float']>;
+  longitude?: Maybe<Scalars['Float']>;
+  radius?: Maybe<Scalars['Float']>;
+  state?: Maybe<Scalars['Int']>;
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  locationPing?: Maybe<Scalars['Boolean']>;
+  regionPing?: Maybe<Scalars['Boolean']>;
+  subscribeToPush?: Maybe<Scalars['Boolean']>;
+  sendVerificationNotifications?: Maybe<Array<Maybe<ExpoPushTokenReceipt>>>;
+  setAccountHidden?: Maybe<PlaidAccount>;
+  setAccessToken?: Maybe<PlaidAccessToken>;
+  createPublicToken?: Maybe<PlaidAccessToken>;
+  updateWebhook?: Maybe<PlaidAccessToken>;
+  resetLogin?: Maybe<PlaidAccessToken>;
+  classifyTransaction?: Maybe<ClassifyTransactionResult>;
+  setTransactionVerificationStatus?: Maybe<PlaidTransaction>;
+  updateSettings?: Maybe<UserSettings>;
+  setDeviceHidden?: Maybe<CardUserDevice>;
+  getOrCreateUser?: Maybe<CardUserResult>;
+  saveUpdatedPurchaseReceipt?: Maybe<InAppSubscription>;
+  savePurchaseError?: Maybe<InAppSubscriptionError>;
+};
+
+
+export type MutationLocationPingArgs = {
+  locations: Array<BackgroundLocationInput>;
+  userInfo?: Maybe<CardUserInfoInput>;
+};
+
+
+export type MutationRegionPingArgs = {
+  region: BackgroundRegionInput;
+  location: BackgroundLocationInput;
+  userInfo?: Maybe<CardUserInfoInput>;
+};
+
+
+export type MutationSubscribeToPushArgs = {
+  token: Scalars['String'];
+  userInfo?: Maybe<CardUserInfoInput>;
+  os?: Maybe<Scalars['String']>;
+};
+
+
+export type MutationSendVerificationNotificationsArgs = {
+  transactionIds: Array<Scalars['String']>;
+};
+
+
+export type MutationSetAccountHiddenArgs = {
+  account_id: Scalars['String'];
+  hidden: Scalars['Boolean'];
+};
+
+
+export type MutationSetAccessTokenArgs = {
+  publicToken: Scalars['String'];
+};
+
+
+export type MutationCreatePublicTokenArgs = {
+  accessToken: Scalars['String'];
+};
+
+
+export type MutationUpdateWebhookArgs = {
+  accessToken: Scalars['String'];
+  webhook: Scalars['String'];
+};
+
+
+export type MutationResetLoginArgs = {
+  accessToken: Scalars['String'];
+};
+
+
+export type MutationClassifyTransactionArgs = {
+  transaction_id: Scalars['String'];
+  hourDelta?: Maybe<Scalars['Int']>;
+  dayDelta?: Maybe<Scalars['Int']>;
+  latDelta?: Maybe<Scalars['Float']>;
+  lonDelta?: Maybe<Scalars['Float']>;
+};
+
+
+export type MutationSetTransactionVerificationStatusArgs = {
+  transaction_id: Scalars['String'];
+  verification_status?: Maybe<TransactionVerificationStatus>;
+};
+
+
+export type MutationUpdateSettingsArgs = {
+  settings: UserSettingsInput;
+};
+
+
+export type MutationSetDeviceHiddenArgs = {
+  id: Scalars['ObjectId'];
+  hidden: Scalars['Boolean'];
+};
+
+
+export type MutationGetOrCreateUserArgs = {
+  userId: Scalars['String'];
+  userInfo?: Maybe<CardUserInfoInput>;
+};
+
+
+export type MutationSaveUpdatedPurchaseReceiptArgs = {
+  subscription: InAppSubscriptionInput;
+  userInfo?: Maybe<CardUserInfoInput>;
+};
+
+
+export type MutationSavePurchaseErrorArgs = {
+  error: InAppSubscriptionErrorInput;
+  userInfo?: Maybe<CardUserInfoInput>;
+};
+
+export type ExpoPushToken = {
+  __typename?: 'ExpoPushToken';
+  _id?: Maybe<Scalars['ObjectId']>;
+  userId?: Maybe<Scalars['String']>;
+  token?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  os?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+};
+
+export type ExpoPushTokenReceiptDetails = {
+  __typename?: 'ExpoPushTokenReceiptDetails';
+  error?: Maybe<Scalars['String']>;
+};
+
+export type FirebaseError = {
+  __typename?: 'FirebaseError';
+  code?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type MessagingDeviceResult = {
+  __typename?: 'MessagingDeviceResult';
+  canonicalRegistrationToken?: Maybe<Scalars['String']>;
+  messageId?: Maybe<Scalars['String']>;
+  error?: Maybe<FirebaseError>;
+};
+
+export type ExpoPushTokenReceiptPayload = {
+  __typename?: 'ExpoPushTokenReceiptPayload';
+  verify_transaction_id?: Maybe<Scalars['String']>;
+};
+
+export type ExpoPushTokenReceipt = {
+  __typename?: 'ExpoPushTokenReceipt';
+  _id?: Maybe<Scalars['ObjectId']>;
+  userId?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  notificationType?: Maybe<Scalars['String']>;
+  ticketId?: Maybe<Scalars['String']>;
+  canonicalRegistrationTokenCount?: Maybe<Scalars['Int']>;
+  multicastId?: Maybe<Scalars['Float']>;
+  successCount?: Maybe<Scalars['Int']>;
+  failureCount?: Maybe<Scalars['Int']>;
+  status?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+  payloadData?: Maybe<ExpoPushTokenReceiptPayload>;
+  results?: Maybe<Array<Maybe<MessagingDeviceResult>>>;
+  details?: Maybe<ExpoPushTokenReceiptDetails>;
+};
+
+export type PlaidAccessToken = {
+  __typename?: 'PlaidAccessToken';
+  _id?: Maybe<Scalars['ObjectId']>;
+  userId?: Maybe<Scalars['String']>;
+  publicToken?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
+  itemId?: Maybe<Scalars['String']>;
+  env?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  item?: Maybe<PlaidItem>;
+  status?: Maybe<PlaidItemStatus>;
+  institution_id?: Maybe<Scalars['String']>;
+  institution?: Maybe<PlaidInstitution>;
+};
+
+export type PlaidTransactionLocation = {
+  __typename?: 'PlaidTransactionLocation';
+  address?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  lat?: Maybe<Scalars['Float']>;
+  lon?: Maybe<Scalars['Float']>;
+  region?: Maybe<Scalars['String']>;
+  store_number?: Maybe<Scalars['String']>;
+  postal_code?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+};
+
+export type PlaidTransactionPaymentMeta = {
+  __typename?: 'PlaidTransactionPaymentMeta';
+  by_order_of?: Maybe<Scalars['String']>;
+  payee?: Maybe<Scalars['String']>;
+  payer?: Maybe<Scalars['String']>;
+  payment_method?: Maybe<Scalars['String']>;
+  payment_processor?: Maybe<Scalars['String']>;
+  ppd_id?: Maybe<Scalars['String']>;
+  reason?: Maybe<Scalars['String']>;
+  reference_number?: Maybe<Scalars['String']>;
+};
+
+export type PlaidTransaction = {
+  __typename?: 'PlaidTransaction';
+  _id?: Maybe<Scalars['ObjectId']>;
+  userId?: Maybe<Scalars['String']>;
+  env?: Maybe<Scalars['String']>;
+  last_sync?: Maybe<Scalars['Date']>;
+  created_date?: Maybe<Scalars['Date']>;
+  updated_date?: Maybe<Scalars['Date']>;
+  verification_date?: Maybe<Scalars['Date']>;
+  verification_status?: Maybe<TransactionVerificationStatus>;
+  verification_reason?: Maybe<Scalars['String']>;
+  verification_by?: Maybe<Scalars['String']>;
+  transaction_id?: Maybe<Scalars['String']>;
+  account_id?: Maybe<Scalars['String']>;
+  account_owner?: Maybe<Scalars['String']>;
+  amount?: Maybe<Scalars['Float']>;
+  iso_currency_code?: Maybe<Scalars['String']>;
+  unofficial_currency_code?: Maybe<Scalars['String']>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category_id?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  location?: Maybe<PlaidTransactionLocation>;
+  name?: Maybe<Scalars['String']>;
+  payment_meta?: Maybe<PlaidTransactionPaymentMeta>;
+  pending?: Maybe<Scalars['Boolean']>;
+  pending_transaction_id?: Maybe<Scalars['String']>;
+  transaction_type?: Maybe<Scalars['String']>;
+};
+
+export type PlaidInvestmentTransaction = {
+  __typename?: 'PlaidInvestmentTransaction';
+  investment_transaction_id?: Maybe<Scalars['String']>;
+  account_id?: Maybe<Scalars['String']>;
+  security_id?: Maybe<Scalars['String']>;
+  cancel_transaction_id?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  name?: Maybe<Scalars['String']>;
+  quantity?: Maybe<Scalars['Float']>;
+  amount?: Maybe<Scalars['Float']>;
+  price?: Maybe<Scalars['Float']>;
+  fees?: Maybe<Scalars['Float']>;
+  type?: Maybe<Scalars['String']>;
+  iso_currency_code?: Maybe<Scalars['String']>;
+  unofficial_currency_code?: Maybe<Scalars['String']>;
+};
+
+export type PlaidSecurity = {
+  __typename?: 'PlaidSecurity';
+  security_id?: Maybe<Scalars['String']>;
+  cusip?: Maybe<Scalars['String']>;
+  sedol?: Maybe<Scalars['String']>;
+  isin?: Maybe<Scalars['String']>;
+  institution_security_id?: Maybe<Scalars['String']>;
+  institution_id?: Maybe<Scalars['String']>;
+  proxy_security_id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  ticker_symbol?: Maybe<Scalars['String']>;
+  is_cash_equivalent?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Scalars['String']>;
+  close_price?: Maybe<Scalars['Float']>;
+  close_price_as_of?: Maybe<Scalars['String']>;
+  iso_currency_code?: Maybe<Scalars['String']>;
+  unofficial_currency_code?: Maybe<Scalars['String']>;
+};
+
+export type PlaidCredential = {
+  __typename?: 'PlaidCredential';
+  label?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+export type PlaidInstitution = {
+  __typename?: 'PlaidInstitution';
+  name?: Maybe<Scalars['String']>;
+  institution_id?: Maybe<Scalars['String']>;
+  country_codes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  credentials?: Maybe<Array<Maybe<PlaidCredential>>>;
+  has_mfa?: Maybe<Scalars['Boolean']>;
+  mfa?: Maybe<Array<Maybe<Scalars['String']>>>;
+  products?: Maybe<Array<Maybe<Scalars['String']>>>;
+  routing_numbers?: Maybe<Array<Maybe<Scalars['String']>>>;
+  oauth?: Maybe<Scalars['Boolean']>;
+  status?: Maybe<PlaidInstitutionStatus>;
+  primary_color?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['String']>;
+  created_date?: Maybe<Scalars['Date']>;
+  updated_date?: Maybe<Scalars['Date']>;
+};
+
+export type PlaidInstitutionStatus = {
+  __typename?: 'PlaidInstitutionStatus';
+  item_logins?: Maybe<PlaidInstitutionServiceStatus>;
+  transactions_updates?: Maybe<PlaidInstitutionServiceStatus>;
+  auth?: Maybe<PlaidInstitutionServiceStatus>;
+  balance?: Maybe<PlaidInstitutionServiceStatus>;
+  identity?: Maybe<PlaidInstitutionServiceStatus>;
+};
+
+export type PlaidInstitutionServiceStatus = {
+  __typename?: 'PlaidInstitutionServiceStatus';
+  status?: Maybe<Scalars['String']>;
+  last_status_change?: Maybe<Scalars['Date']>;
+  breakdown?: Maybe<PlaidInstitutionServiceStatusBreakDown>;
+};
+
+export type PlaidInstitutionServiceStatusBreakDown = {
+  __typename?: 'PlaidInstitutionServiceStatusBreakDown';
+  success?: Maybe<Scalars['Float']>;
+  error_plaid?: Maybe<Scalars['Float']>;
+  error_institution?: Maybe<Scalars['Float']>;
+};
+
+export type PlaidInvestmentsResponse = {
+  __typename?: 'PlaidInvestmentsResponse';
+  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
+  securities?: Maybe<Array<Maybe<PlaidSecurity>>>;
+  item?: Maybe<PlaidItem>;
+};
+
+export type PlaidAddressData = {
+  __typename?: 'PlaidAddressData';
+  city?: Maybe<Scalars['String']>;
+  region?: Maybe<Scalars['String']>;
+  postal_code?: Maybe<Scalars['String']>;
+  street?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+};
+
+export type PlaidAddress = {
+  __typename?: 'PlaidAddress';
+  data?: Maybe<PlaidAddressData>;
+  primary?: Maybe<Scalars['Boolean']>;
+};
+
+export type PlaidEmail = {
+  __typename?: 'PlaidEmail';
+  data?: Maybe<Scalars['String']>;
+  primary?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+export type PlaidPhoneNumber = {
+  __typename?: 'PlaidPhoneNumber';
+  data?: Maybe<Scalars['String']>;
+  primary?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+export type PlaidIdentity = {
+  __typename?: 'PlaidIdentity';
+  addresses?: Maybe<Array<Maybe<PlaidAddress>>>;
+  emails?: Maybe<Array<Maybe<PlaidEmail>>>;
+  names?: Maybe<Array<Maybe<Scalars['String']>>>;
+  phone_numbers?: Maybe<Array<Maybe<PlaidPhoneNumber>>>;
+};
+
+export type PlaidIdentityResponse = {
+  __typename?: 'PlaidIdentityResponse';
+  accounts?: Maybe<Array<Maybe<PlaidAccountWithOwners>>>;
+  item?: Maybe<PlaidItem>;
+};
+
+export enum VerificationStatus {
+  PendingAutomaticVerification = 'pending_automatic_verification',
+  PendingManualVerification = 'pending_manual_verification',
+  ManuallyVerified = 'manually_verified',
+  AutomaticallyVerified = 'automatically_verified'
+}
+
+export type PlaidAccountBalance = {
+  __typename?: 'PlaidAccountBalance';
+  available?: Maybe<Scalars['Float']>;
+  current?: Maybe<Scalars['Float']>;
+  limit?: Maybe<Scalars['Float']>;
+  iso_currency_code?: Maybe<Scalars['String']>;
+  unofficial_currency_code?: Maybe<Scalars['String']>;
+};
+
+export type PlaidAccount = {
+  __typename?: 'PlaidAccount';
+  _id?: Maybe<Scalars['ObjectId']>;
+  userId?: Maybe<Scalars['String']>;
+  env?: Maybe<Scalars['String']>;
+  last_sync?: Maybe<Scalars['Date']>;
+  created_date?: Maybe<Scalars['Date']>;
+  updated_date?: Maybe<Scalars['Date']>;
+  transactions_ready?: Maybe<Scalars['Boolean']>;
+  item_id?: Maybe<Scalars['String']>;
+  institution_id?: Maybe<Scalars['String']>;
+  hidden?: Maybe<Scalars['Boolean']>;
+  account_id?: Maybe<Scalars['String']>;
+  mask?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  official_name?: Maybe<Scalars['String']>;
+  subtype?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  verification_status?: Maybe<Scalars['String']>;
+  balances?: Maybe<PlaidAccountBalance>;
+};
+
+export type PlaidAccountWithOwners = {
+  __typename?: 'PlaidAccountWithOwners';
+  account_id?: Maybe<Scalars['String']>;
+  mask?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  official_name?: Maybe<Scalars['String']>;
+  subtype?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  verification_status?: Maybe<Scalars['String']>;
+  balances?: Maybe<PlaidAccountBalance>;
+  owners?: Maybe<Array<Maybe<PlaidIdentity>>>;
+};
+
+export type PlaidAccountsResponse = {
+  __typename?: 'PlaidAccountsResponse';
+  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
+  item?: Maybe<PlaidItem>;
+};
+
+export type PlaidHolding = {
+  __typename?: 'PlaidHolding';
+  account_id?: Maybe<Scalars['String']>;
+  security_id?: Maybe<Scalars['String']>;
+  institution_value?: Maybe<Scalars['Float']>;
+  institution_price?: Maybe<Scalars['Float']>;
+  quantity?: Maybe<Scalars['Float']>;
+  institution_price_as_of?: Maybe<Scalars['String']>;
+  cost_basis?: Maybe<Scalars['Float']>;
+  iso_currency_code?: Maybe<Scalars['String']>;
+  unofficial_currency_code?: Maybe<Scalars['String']>;
+};
+
+export type PlaidHoldingsResponse = {
+  __typename?: 'PlaidHoldingsResponse';
+  securities?: Maybe<Array<Maybe<PlaidSecurity>>>;
+  holdings?: Maybe<Array<Maybe<PlaidHolding>>>;
+};
+
+export type PlaidItem = {
+  __typename?: 'PlaidItem';
+  _id?: Maybe<Scalars['ObjectId']>;
+  userId?: Maybe<Scalars['String']>;
+  env?: Maybe<Scalars['String']>;
+  created_date?: Maybe<Scalars['Date']>;
+  updated_date?: Maybe<Scalars['Date']>;
+  item_id?: Maybe<Scalars['String']>;
+  institution_id?: Maybe<Scalars['String']>;
+  available_products?: Maybe<Array<Maybe<Scalars['String']>>>;
+  billed_products?: Maybe<Array<Maybe<Scalars['String']>>>;
+  error?: Maybe<PlaidError>;
+  webhook?: Maybe<Scalars['String']>;
+  consent_expiration_time?: Maybe<Scalars['Date']>;
+  institution?: Maybe<PlaidInstitution>;
+};
+
+export type PlaidItemStatus = {
+  __typename?: 'PlaidItemStatus';
+  transactions?: Maybe<PlaidTransactionsStatus>;
+  last_webhook?: Maybe<PlaidWebhookStatus>;
+};
+
+export type PlaidTransactionsStatus = {
+  __typename?: 'PlaidTransactionsStatus';
+  last_successful_update?: Maybe<Scalars['String']>;
+  last_failed_update?: Maybe<Scalars['String']>;
+};
+
+export type PlaidWebhookStatus = {
+  __typename?: 'PlaidWebhookStatus';
+  sent_at?: Maybe<Scalars['String']>;
+  code_sent?: Maybe<Scalars['String']>;
+};
+
+export type PlaidTransactionsResponse = {
+  __typename?: 'PlaidTransactionsResponse';
+  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
+  total_transactions?: Maybe<Scalars['Int']>;
+  transactions?: Maybe<Array<Maybe<PlaidTransaction>>>;
+  item?: Maybe<PlaidItem>;
+};
+
+export type PlaidInvestmentTransactionResponse = {
+  __typename?: 'PlaidInvestmentTransactionResponse';
+  accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
+  securities?: Maybe<Array<Maybe<PlaidSecurity>>>;
+  item?: Maybe<PlaidItem>;
+  investment_transactions?: Maybe<Array<Maybe<PlaidInvestmentTransaction>>>;
+  total_investment_transactions?: Maybe<Scalars['Int']>;
+};
+
+export type Cause = {
+  __typename?: 'Cause';
+  error_type?: Maybe<Scalars['String']>;
+  error_code?: Maybe<Scalars['String']>;
+  error_message?: Maybe<Scalars['String']>;
+  display_message?: Maybe<Scalars['String']>;
+  item_id?: Maybe<Scalars['String']>;
+};
+
+export type PlaidError = {
+  __typename?: 'PlaidError';
+  error_type?: Maybe<Scalars['String']>;
+  error_code?: Maybe<Scalars['String']>;
+  error_message?: Maybe<Scalars['String']>;
+  display_message?: Maybe<Scalars['String']>;
+  causes?: Maybe<Array<Maybe<Cause>>>;
+};
+
+export type PlaidCategory = {
+  __typename?: 'PlaidCategory';
+  group?: Maybe<Scalars['String']>;
+  hierarchy?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category_id?: Maybe<Scalars['String']>;
+};
+
+export type PlaidInstitutionsResponse = {
+  __typename?: 'PlaidInstitutionsResponse';
+  total?: Maybe<Scalars['Int']>;
+  institutions?: Maybe<Array<PlaidInstitution>>;
+};
+
+export enum TransactionVerificationStatus {
+  Verified = 'VERIFIED',
+  Undetermined = 'UNDETERMINED',
+  Falsified = 'FALSIFIED'
+}
 
 export type TransactionLocationVerification = {
-   __typename?: 'TransactionLocationVerification';
+  __typename?: 'TransactionLocationVerification';
   transaction_id?: Maybe<Scalars['String']>;
   transaction?: Maybe<PlaidTransaction>;
   account?: Maybe<PlaidAccount>;
@@ -1346,37 +1005,60 @@ export type TransactionLocationVerificationActivityArgs = {
   sort?: Maybe<Sort>;
 };
 
-export enum TransactionVerificationStatus {
-  Verified = 'VERIFIED',
-  Undetermined = 'UNDETERMINED',
-  Falsified = 'FALSIFIED'
-}
-
-export type UserConfig = {
-   __typename?: 'UserConfig';
-  plaidEnv?: Maybe<Scalars['String']>;
-  activeSubscription?: Maybe<Scalars['String']>;
-  activeSubscriptionInTrial?: Maybe<Scalars['Boolean']>;
-  plaidLinkUnavailable?: Maybe<Scalars['Boolean']>;
-  maxTrialInstitutions?: Maybe<Scalars['Int']>;
-  maxInstitutions?: Maybe<Scalars['Int']>;
+export type BooleanUpdate = {
+  __typename?: 'BooleanUpdate';
+  previous?: Maybe<Scalars['Boolean']>;
+  current?: Maybe<Scalars['Boolean']>;
 };
 
-export type UserSettings = {
-   __typename?: 'UserSettings';
+export type StringUpdate = {
+  __typename?: 'StringUpdate';
+  previous?: Maybe<Scalars['String']>;
+  current?: Maybe<Scalars['String']>;
+};
+
+export type IntUpdate = {
+  __typename?: 'IntUpdate';
+  previous?: Maybe<Scalars['Int']>;
+  current?: Maybe<Scalars['Int']>;
+};
+
+export type FloatUpdate = {
+  __typename?: 'FloatUpdate';
+  previous?: Maybe<Scalars['Float']>;
+  current?: Maybe<Scalars['Float']>;
+};
+
+export type AccountActivity = {
+  __typename?: 'AccountActivity';
+  _id?: Maybe<Scalars['ObjectId']>;
+  type?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
-  billing_status?: Maybe<Scalars['String']>;
-  notifications_email?: Maybe<Scalars['Boolean']>;
-  notifications_push?: Maybe<Scalars['Boolean']>;
-  notifications_filter?: Maybe<NotificationsFilter>;
+  account_id?: Maybe<Scalars['String']>;
+  created_by?: Maybe<Scalars['String']>;
   created_date?: Maybe<Scalars['Date']>;
-  updated_date?: Maybe<Scalars['Date']>;
+  hidden?: Maybe<BooleanUpdate>;
 };
 
-export type UserSettingsInput = {
-  notifications_email?: Maybe<Scalars['Boolean']>;
-  notifications_push?: Maybe<Scalars['Boolean']>;
-  notifications_filter?: Maybe<NotificationsFilterInput>;
+export type TransactionActivity = {
+  __typename?: 'TransactionActivity';
+  _id?: Maybe<Scalars['ObjectId']>;
+  type?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  transaction_id?: Maybe<Scalars['String']>;
+  pending_transaction_id?: Maybe<StringUpdate>;
+  verification_status?: Maybe<StringUpdate>;
+  verification_reason?: Maybe<StringUpdate>;
+  verification_by?: Maybe<StringUpdate>;
+  created_by?: Maybe<Scalars['String']>;
+  created_date?: Maybe<Scalars['Date']>;
+};
+
+export type TransactionActivityPage = {
+  __typename?: 'TransactionActivityPage';
+  total?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Maybe<TransactionActivity>>>;
 };
 
 export type VerifiableTransactionsFilter = {
@@ -1388,14 +1070,14 @@ export type VerifiableTransactionsFilter = {
 };
 
 export type VerifiableTransactionsResponse = {
-   __typename?: 'VerifiableTransactionsResponse';
+  __typename?: 'VerifiableTransactionsResponse';
   total_transactions?: Maybe<Scalars['Int']>;
   transactions?: Maybe<Array<Maybe<PlaidTransaction>>>;
   accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
 };
 
 export type VerifiableTransactionsResponseAdmin = {
-   __typename?: 'VerifiableTransactionsResponseAdmin';
+  __typename?: 'VerifiableTransactionsResponseAdmin';
   total_transactions?: Maybe<Scalars['Int']>;
   transactions?: Maybe<Array<Maybe<PlaidTransaction>>>;
   accounts?: Maybe<Array<Maybe<PlaidAccount>>>;
@@ -1403,12 +1085,331 @@ export type VerifiableTransactionsResponseAdmin = {
   cardUsers?: Maybe<Array<Maybe<CardUser>>>;
 };
 
-export enum VerificationStatus {
-  PendingAutomaticVerification = 'pending_automatic_verification',
-  PendingManualVerification = 'pending_manual_verification',
-  ManuallyVerified = 'manually_verified',
-  AutomaticallyVerified = 'automatically_verified'
-}
+export type ClassifyTransactionResult = {
+  __typename?: 'ClassifyTransactionResult';
+  transaction_id?: Maybe<Scalars['String']>;
+  transaction?: Maybe<PlaidTransaction>;
+  account?: Maybe<PlaidAccount>;
+  institution?: Maybe<PlaidInstitution>;
+  nearCount?: Maybe<Scalars['Int']>;
+  undeterminedCount?: Maybe<Scalars['Int']>;
+  duringCount?: Maybe<Scalars['Int']>;
+  previousValue?: Maybe<TransactionVerificationStatus>;
+  updatedValue?: Maybe<TransactionVerificationStatus>;
+  previousReason?: Maybe<Scalars['String']>;
+  updatedReason?: Maybe<Scalars['String']>;
+};
+
+export type Cpu = {
+  __typename?: 'CPU';
+  value?: Maybe<Scalars['Float']>;
+};
+
+export type Subscription = {
+  __typename?: 'Subscription';
+  cpuUsage?: Maybe<Cpu>;
+};
+
+export type UserSettings = {
+  __typename?: 'UserSettings';
+  userId?: Maybe<Scalars['String']>;
+  billing_status?: Maybe<Scalars['String']>;
+  notifications_email?: Maybe<Scalars['Boolean']>;
+  notifications_push?: Maybe<Scalars['Boolean']>;
+  notifications_filter?: Maybe<NotificationsFilter>;
+  created_date?: Maybe<Scalars['Date']>;
+  updated_date?: Maybe<Scalars['Date']>;
+};
+
+export type NotificationsFilter = {
+  __typename?: 'NotificationsFilter';
+  falsified?: Maybe<Scalars['Boolean']>;
+  verified?: Maybe<Scalars['Boolean']>;
+  undetermined?: Maybe<Scalars['Boolean']>;
+  pending?: Maybe<Scalars['Boolean']>;
+};
+
+export type NotificationsFilterInput = {
+  falsified?: Maybe<Scalars['Boolean']>;
+  verified?: Maybe<Scalars['Boolean']>;
+  undetermined?: Maybe<Scalars['Boolean']>;
+  pending?: Maybe<Scalars['Boolean']>;
+};
+
+export type UserSettingsInput = {
+  notifications_email?: Maybe<Scalars['Boolean']>;
+  notifications_push?: Maybe<Scalars['Boolean']>;
+  notifications_filter?: Maybe<NotificationsFilterInput>;
+};
+
+export type CardUserDevice = {
+  __typename?: 'CardUserDevice';
+  _id?: Maybe<Scalars['ObjectId']>;
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  active?: Maybe<Scalars['Boolean']>;
+  hidden?: Maybe<Scalars['Boolean']>;
+  email?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+};
+
+export type UserConfig = {
+  __typename?: 'UserConfig';
+  plaidEnv?: Maybe<Scalars['String']>;
+  activeSubscription?: Maybe<Scalars['String']>;
+  activeSubscriptionInTrial?: Maybe<Scalars['Boolean']>;
+  plaidLinkUnavailable?: Maybe<Scalars['Boolean']>;
+  maxTrialInstitutions?: Maybe<Scalars['Int']>;
+  maxInstitutions?: Maybe<Scalars['Int']>;
+};
+
+export type CardUser = {
+  __typename?: 'CardUser';
+  _id?: Maybe<Scalars['ObjectId']>;
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  displayName?: Maybe<Scalars['String']>;
+  photoURL?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  config?: Maybe<UserConfig>;
+  settings?: Maybe<UserSettings>;
+  getAccessTokens?: Maybe<Array<Maybe<PlaidAccessToken>>>;
+  getCachedTransactions?: Maybe<PlaidTransactionsResponse>;
+  getSubscriptionHistory?: Maybe<InAppSubscriptionPage>;
+  getSubscriptionErrorHistory?: Maybe<InAppSubscriptionErrorPage>;
+  backgroundLocations?: Maybe<BackgroundLocationPage>;
+  devices?: Maybe<CardUserDevicePage>;
+};
+
+
+export type CardUserGetCachedTransactionsArgs = {
+  startDate?: Maybe<Scalars['Date']>;
+  endDate?: Maybe<Scalars['Date']>;
+  page?: Maybe<Scalars['Int']>;
+  perPage?: Maybe<Scalars['Int']>;
+};
+
+
+export type CardUserGetSubscriptionHistoryArgs = {
+  pagination?: Maybe<Pagination>;
+  sort?: Maybe<Sort>;
+};
+
+
+export type CardUserGetSubscriptionErrorHistoryArgs = {
+  pagination?: Maybe<Pagination>;
+  sort?: Maybe<Sort>;
+};
+
+
+export type CardUserBackgroundLocationsArgs = {
+  filter?: Maybe<BackgroundLocationFilter>;
+  pagination?: Maybe<Pagination>;
+  sort?: Maybe<Sort>;
+};
+
+
+export type CardUserDevicesArgs = {
+  pagination?: Maybe<Pagination>;
+  sort?: Maybe<Sort>;
+};
+
+export type CardUserDevicePage = {
+  __typename?: 'CardUserDevicePage';
+  total?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Maybe<CardUserDevice>>>;
+};
+
+export type CardUserFilter = {
+  deviceId?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+export type CardUserInfoInput = {
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
+};
+
+export type CardUserListResult = {
+  __typename?: 'CardUserListResult';
+  total?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<CardUser>>;
+};
+
+export type CardUserResult = {
+  __typename?: 'CardUserResult';
+  created?: Maybe<Scalars['Boolean']>;
+  cardUser?: Maybe<CardUser>;
+};
+
+export type InAppSubscription = {
+  __typename?: 'InAppSubscription';
+  _id?: Maybe<Scalars['ObjectId']>;
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  productId?: Maybe<Scalars['String']>;
+  transactionId?: Maybe<Scalars['String']>;
+  transactionDate?: Maybe<Scalars['Date']>;
+  transactionReceipt?: Maybe<Scalars['String']>;
+  purchaseToken?: Maybe<Scalars['String']>;
+  dataAndroid?: Maybe<Scalars['String']>;
+  signatureAndroid?: Maybe<Scalars['String']>;
+  autoRenewingAndroid?: Maybe<Scalars['Boolean']>;
+  purchaseStateAndroid?: Maybe<Scalars['Int']>;
+  originalTransactionDateIOS?: Maybe<Scalars['Date']>;
+  originalTransactionIdentifierIOS?: Maybe<Scalars['String']>;
+  isAcknowledgedAndroid?: Maybe<Scalars['Boolean']>;
+  verified?: Maybe<Scalars['Boolean']>;
+  isTrialPeriod?: Maybe<Scalars['Boolean']>;
+};
+
+export type InAppSubscriptionError = {
+  __typename?: 'InAppSubscriptionError';
+  _id?: Maybe<Scalars['ObjectId']>;
+  os?: Maybe<Scalars['String']>;
+  device?: Maybe<Scalars['String']>;
+  deviceId?: Maybe<Scalars['String']>;
+  deviceType?: Maybe<Scalars['String']>;
+  userAgent?: Maybe<Scalars['String']>;
+  referrer?: Maybe<Scalars['String']>;
+  ip?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
+  userId?: Maybe<Scalars['String']>;
+  responseCode?: Maybe<Scalars['Int']>;
+  debugMessage?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type InAppSubscriptionInput = {
+  productId?: Maybe<Scalars['String']>;
+  transactionId?: Maybe<Scalars['String']>;
+  transactionDate?: Maybe<Scalars['Date']>;
+  transactionReceipt?: Maybe<Scalars['String']>;
+  purchaseToken?: Maybe<Scalars['String']>;
+  dataAndroid?: Maybe<Scalars['String']>;
+  signatureAndroid?: Maybe<Scalars['String']>;
+  autoRenewingAndroid?: Maybe<Scalars['Boolean']>;
+  purchaseStateAndroid?: Maybe<Scalars['Int']>;
+  originalTransactionDateIOS?: Maybe<Scalars['Date']>;
+  originalTransactionIdentifierIOS?: Maybe<Scalars['String']>;
+  isAcknowledgedAndroid?: Maybe<Scalars['Boolean']>;
+};
+
+export type InAppSubscriptionErrorInput = {
+  responseCode?: Maybe<Scalars['Int']>;
+  debugMessage?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
+};
+
+export type IosReceipt = {
+  __typename?: 'IosReceipt';
+  receipt_type?: Maybe<Scalars['String']>;
+  adam_id?: Maybe<Scalars['Int']>;
+  app_item_id?: Maybe<Scalars['Int']>;
+  bundle_id?: Maybe<Scalars['String']>;
+  application_version?: Maybe<Scalars['String']>;
+  download_id?: Maybe<Scalars['Int']>;
+  version_external_identifier?: Maybe<Scalars['Int']>;
+  receipt_creation_date?: Maybe<Scalars['String']>;
+  receipt_creation_date_ms?: Maybe<Scalars['String']>;
+  receipt_creation_date_pst?: Maybe<Scalars['String']>;
+  request_date?: Maybe<Scalars['String']>;
+  request_date_ms?: Maybe<Scalars['String']>;
+  request_date_pst?: Maybe<Scalars['String']>;
+  original_purchase_date?: Maybe<Scalars['String']>;
+  original_purchase_date_ms?: Maybe<Scalars['String']>;
+  original_purchase_date_pst?: Maybe<Scalars['String']>;
+  original_application_version?: Maybe<Scalars['String']>;
+};
+
+export type IosLatestReceiptInfo = {
+  __typename?: 'IosLatestReceiptInfo';
+  quantity?: Maybe<Scalars['String']>;
+  product_id?: Maybe<Scalars['String']>;
+  transaction_id?: Maybe<Scalars['String']>;
+  original_transaction_id?: Maybe<Scalars['String']>;
+  purchase_date?: Maybe<Scalars['String']>;
+  purchase_date_ms?: Maybe<Scalars['String']>;
+  purchase_date_pst?: Maybe<Scalars['String']>;
+  original_purchase_date?: Maybe<Scalars['String']>;
+  original_purchase_date_ms?: Maybe<Scalars['String']>;
+  original_purchase_date_pst?: Maybe<Scalars['String']>;
+  expires_date?: Maybe<Scalars['String']>;
+  expires_date_ms?: Maybe<Scalars['String']>;
+  expires_date_pst?: Maybe<Scalars['String']>;
+  web_order_line_item_id?: Maybe<Scalars['String']>;
+  is_trial_period?: Maybe<Scalars['String']>;
+  is_in_intro_offer_period?: Maybe<Scalars['String']>;
+  subscription_group_identifier?: Maybe<Scalars['String']>;
+};
+
+export type IosPendingRenewalInfo = {
+  __typename?: 'IosPendingRenewalInfo';
+  expiration_intent?: Maybe<Scalars['String']>;
+  auto_renew_product_id?: Maybe<Scalars['String']>;
+  original_transaction_id?: Maybe<Scalars['String']>;
+  is_in_billing_retry_period?: Maybe<Scalars['String']>;
+  product_id?: Maybe<Scalars['String']>;
+  auto_renew_status?: Maybe<Scalars['String']>;
+};
+
+export type IosVerifyReceipt = {
+  __typename?: 'IosVerifyReceipt';
+  status?: Maybe<Scalars['Int']>;
+  environment?: Maybe<Scalars['String']>;
+  receipt?: Maybe<IosReceipt>;
+  pending_renewal_info?: Maybe<Array<Maybe<IosPendingRenewalInfo>>>;
+  latest_receipt_info?: Maybe<Array<Maybe<IosLatestReceiptInfo>>>;
+};
+
+export type AndroidVerifyReceipt = {
+  __typename?: 'AndroidVerifyReceipt';
+  status?: Maybe<Scalars['Int']>;
+  environment?: Maybe<Scalars['String']>;
+};
+
+export type InAppSubscriptionPage = {
+  __typename?: 'InAppSubscriptionPage';
+  total?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Maybe<InAppSubscription>>>;
+};
+
+export type InAppSubscriptionErrorPage = {
+  __typename?: 'InAppSubscriptionErrorPage';
+  total?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Maybe<InAppSubscriptionError>>>;
+};
 
 export type PlaidAccessTokenFragment = (
   { __typename?: 'PlaidAccessToken' }
@@ -1552,9 +1553,9 @@ export type TransactionActivityFragment = (
   )> }
 );
 
-export type CreatePublicTokenMutationVariables = {
+export type CreatePublicTokenMutationVariables = Exact<{
   accessToken: Scalars['String'];
-};
+}>;
 
 
 export type CreatePublicTokenMutation = (
@@ -1572,10 +1573,10 @@ export type CreatePublicTokenMutation = (
   )> }
 );
 
-export type GetOrCreateUserMutationVariables = {
+export type GetOrCreateUserMutationVariables = Exact<{
   userId: Scalars['String'];
   userInfo?: Maybe<CardUserInfoInput>;
-};
+}>;
 
 
 export type GetOrCreateUserMutation = (
@@ -1590,10 +1591,10 @@ export type GetOrCreateUserMutation = (
   )> }
 );
 
-export type LocationPingMutationVariables = {
+export type LocationPingMutationVariables = Exact<{
   locations: Array<BackgroundLocationInput>;
   userInfo?: Maybe<CardUserInfoInput>;
-};
+}>;
 
 
 export type LocationPingMutation = (
@@ -1601,11 +1602,11 @@ export type LocationPingMutation = (
   & Pick<Mutation, 'locationPing'>
 );
 
-export type RegionPingMutationVariables = {
+export type RegionPingMutationVariables = Exact<{
   region: BackgroundRegionInput;
   location: BackgroundLocationInput;
   userInfo?: Maybe<CardUserInfoInput>;
-};
+}>;
 
 
 export type RegionPingMutation = (
@@ -1613,10 +1614,10 @@ export type RegionPingMutation = (
   & Pick<Mutation, 'regionPing'>
 );
 
-export type SavePurchaseErrorMutationVariables = {
+export type SavePurchaseErrorMutationVariables = Exact<{
   error: InAppSubscriptionErrorInput;
   userInfo?: Maybe<CardUserInfoInput>;
-};
+}>;
 
 
 export type SavePurchaseErrorMutation = (
@@ -1627,10 +1628,10 @@ export type SavePurchaseErrorMutation = (
   )> }
 );
 
-export type SaveUpdatedPurchaseReceiptMutationVariables = {
+export type SaveUpdatedPurchaseReceiptMutationVariables = Exact<{
   subscription: InAppSubscriptionInput;
   userInfo?: Maybe<CardUserInfoInput>;
-};
+}>;
 
 
 export type SaveUpdatedPurchaseReceiptMutation = (
@@ -1641,9 +1642,9 @@ export type SaveUpdatedPurchaseReceiptMutation = (
   )> }
 );
 
-export type SetAccessTokenMutationVariables = {
+export type SetAccessTokenMutationVariables = Exact<{
   publicToken: Scalars['String'];
-};
+}>;
 
 
 export type SetAccessTokenMutation = (
@@ -1661,10 +1662,10 @@ export type SetAccessTokenMutation = (
   )> }
 );
 
-export type SetAccountHiddenMutationVariables = {
+export type SetAccountHiddenMutationVariables = Exact<{
   account_id: Scalars['String'];
   hidden: Scalars['Boolean'];
-};
+}>;
 
 
 export type SetAccountHiddenMutation = (
@@ -1675,10 +1676,10 @@ export type SetAccountHiddenMutation = (
   )> }
 );
 
-export type SetDeviceHiddenMutationVariables = {
+export type SetDeviceHiddenMutationVariables = Exact<{
   id: Scalars['ObjectId'];
   hidden: Scalars['Boolean'];
-};
+}>;
 
 
 export type SetDeviceHiddenMutation = (
@@ -1689,10 +1690,10 @@ export type SetDeviceHiddenMutation = (
   )> }
 );
 
-export type SetTransactionVerificationStatusMutationVariables = {
+export type SetTransactionVerificationStatusMutationVariables = Exact<{
   transaction_id: Scalars['String'];
   verification_status?: Maybe<TransactionVerificationStatus>;
-};
+}>;
 
 
 export type SetTransactionVerificationStatusMutation = (
@@ -1704,10 +1705,10 @@ export type SetTransactionVerificationStatusMutation = (
   )> }
 );
 
-export type SubscribeToPushMutationVariables = {
+export type SubscribeToPushMutationVariables = Exact<{
   token: Scalars['String'];
   userInfo?: Maybe<CardUserInfoInput>;
-};
+}>;
 
 
 export type SubscribeToPushMutation = (
@@ -1715,9 +1716,9 @@ export type SubscribeToPushMutation = (
   & Pick<Mutation, 'subscribeToPush'>
 );
 
-export type UpdateSettingsMutationVariables = {
+export type UpdateSettingsMutationVariables = Exact<{
   settings: UserSettingsInput;
-};
+}>;
 
 
 export type UpdateSettingsMutation = (
@@ -1728,11 +1729,11 @@ export type UpdateSettingsMutation = (
   )> }
 );
 
-export type BackgroundLocationsQueryVariables = {
+export type BackgroundLocationsQueryVariables = Exact<{
   filter?: Maybe<BackgroundLocationFilter>;
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type BackgroundLocationsQuery = (
@@ -1747,11 +1748,11 @@ export type BackgroundLocationsQuery = (
   )> }
 );
 
-export type BackgroundRegionsQueryVariables = {
+export type BackgroundRegionsQueryVariables = Exact<{
   filter?: Maybe<BackgroundRegionFilter>;
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type BackgroundRegionsQuery = (
@@ -1766,13 +1767,13 @@ export type BackgroundRegionsQuery = (
   )> }
 );
 
-export type CardUserQueryVariables = {
+export type CardUserQueryVariables = Exact<{
   userId?: Maybe<Scalars['String']>;
   startDate?: Maybe<Scalars['Date']>;
   endDate?: Maybe<Scalars['Date']>;
   page?: Maybe<Scalars['Int']>;
   perPage?: Maybe<Scalars['Int']>;
-};
+}>;
 
 
 export type CardUserQuery = (
@@ -1836,9 +1837,9 @@ export type CardUserQuery = (
   )> }
 );
 
-export type CardUserByDeviceIdQueryVariables = {
+export type CardUserByDeviceIdQueryVariables = Exact<{
   deviceId: Scalars['String'];
-};
+}>;
 
 
 export type CardUserByDeviceIdQuery = (
@@ -1849,12 +1850,12 @@ export type CardUserByDeviceIdQuery = (
   )> }
 );
 
-export type CardUserListQueryVariables = {
+export type CardUserListQueryVariables = Exact<{
   searchText?: Maybe<Scalars['String']>;
   filter?: Maybe<CardUserFilter>;
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type CardUserListQuery = (
@@ -1869,12 +1870,12 @@ export type CardUserListQuery = (
   )> }
 );
 
-export type CardUserLocationsQueryVariables = {
+export type CardUserLocationsQueryVariables = Exact<{
   userId?: Maybe<Scalars['String']>;
   filter?: Maybe<BackgroundLocationFilter>;
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type CardUserLocationsQuery = (
@@ -1892,9 +1893,9 @@ export type CardUserLocationsQuery = (
   )> }
 );
 
-export type GetAccessTokenQueryVariables = {
+export type GetAccessTokenQueryVariables = Exact<{
   publicToken: Scalars['String'];
-};
+}>;
 
 
 export type GetAccessTokenQuery = (
@@ -1905,7 +1906,7 @@ export type GetAccessTokenQuery = (
   )> }
 );
 
-export type GetAccessTokensQueryVariables = {};
+export type GetAccessTokensQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAccessTokensQuery = (
@@ -1926,7 +1927,7 @@ export type GetAccessTokensQuery = (
   )>>> }
 );
 
-export type GetAccessTokensWithInstitutionsQueryVariables = {};
+export type GetAccessTokensWithInstitutionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAccessTokensWithInstitutionsQuery = (
@@ -1947,7 +1948,7 @@ export type GetAccessTokensWithInstitutionsQuery = (
   )>>> }
 );
 
-export type GetAccessTokensWithInstitutionStatusQueryVariables = {};
+export type GetAccessTokensWithInstitutionStatusQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAccessTokensWithInstitutionStatusQuery = (
@@ -1972,12 +1973,12 @@ export type GetAccessTokensWithInstitutionStatusQuery = (
   )>>> }
 );
 
-export type GetCachedTransactionsQueryVariables = {
+export type GetCachedTransactionsQueryVariables = Exact<{
   startDate?: Maybe<Scalars['Date']>;
   endDate?: Maybe<Scalars['Date']>;
   page?: Maybe<Scalars['Int']>;
   perPage?: Maybe<Scalars['Int']>;
-};
+}>;
 
 
 export type GetCachedTransactionsQuery = (
@@ -2013,9 +2014,9 @@ export type GetCachedTransactionsQuery = (
   )> }
 );
 
-export type GetIdentityQueryVariables = {
+export type GetIdentityQueryVariables = Exact<{
   accessToken: Scalars['String'];
-};
+}>;
 
 
 export type GetIdentityQuery = (
@@ -2032,7 +2033,7 @@ export type GetIdentityQuery = (
   )> }
 );
 
-export type GetSettingsQueryVariables = {};
+export type GetSettingsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetSettingsQuery = (
@@ -2043,13 +2044,13 @@ export type GetSettingsQuery = (
   )> }
 );
 
-export type GetTransactionsQueryVariables = {
+export type GetTransactionsQueryVariables = Exact<{
   accessToken: Scalars['String'];
   startDate?: Maybe<Scalars['Date']>;
   endDate?: Maybe<Scalars['Date']>;
   page?: Maybe<Scalars['Int']>;
   perPage?: Maybe<Scalars['Int']>;
-};
+}>;
 
 
 export type GetTransactionsQuery = (
@@ -2070,11 +2071,11 @@ export type GetTransactionsQuery = (
   )> }
 );
 
-export type TransactionActivityQueryVariables = {
+export type TransactionActivityQueryVariables = Exact<{
   transaction_id: Scalars['String'];
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type TransactionActivityQuery = (
@@ -2092,13 +2093,13 @@ export type TransactionActivityQuery = (
   )> }
 );
 
-export type VerifiableTransactionsPageQueryVariables = {
+export type VerifiableTransactionsPageQueryVariables = Exact<{
   type?: Maybe<Scalars['String']>;
   searchText?: Maybe<Scalars['String']>;
   filter?: Maybe<VerifiableTransactionsFilter>;
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type VerifiableTransactionsPageQuery = (
@@ -2117,14 +2118,14 @@ export type VerifiableTransactionsPageQuery = (
   )> }
 );
 
-export type VerifiableTransactionsPageAdminQueryVariables = {
+export type VerifiableTransactionsPageAdminQueryVariables = Exact<{
   type?: Maybe<Scalars['String']>;
   userId?: Maybe<Scalars['String']>;
   searchText?: Maybe<Scalars['String']>;
   filter?: Maybe<VerifiableTransactionsFilter>;
   pagination?: Maybe<Pagination>;
   sort?: Maybe<Sort>;
-};
+}>;
 
 
 export type VerifiableTransactionsPageAdminQuery = (
@@ -2150,9 +2151,9 @@ export type VerifiableTransactionsPageAdminQuery = (
   )> }
 );
 
-export type VerifyTransactionLocationQueryVariables = {
+export type VerifyTransactionLocationQueryVariables = Exact<{
   transaction_id: Scalars['String'];
-};
+}>;
 
 
 export type VerifyTransactionLocationQuery = (
