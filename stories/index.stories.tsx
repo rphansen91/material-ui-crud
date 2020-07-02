@@ -61,8 +61,9 @@ const theme = createMuiTheme({
   },
 });
 
+const token = localStorage.getItem("token");
 const client = getClient(process.env.SCHEMA || "", () => ({
-  headers: { "x-auth-token": "elevate2020" },
+  headers: { "x-auth-token": token },
 }));
 
 const Base: React.FC = ({ children }) => {
