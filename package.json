@@ -11,7 +11,7 @@
   "homepage": "https://elevatejs.com/blog/ts-mongo-codegen",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rphansen91/ts-mongo-codegen"
+    "url": "https://github.com/rphansen91/material-ui-crud"
   },
   "scripts": {
     "start": "react-scripts start",
