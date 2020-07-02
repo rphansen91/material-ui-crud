@@ -6,6 +6,10 @@ Enables all CRUD operations client side with configurable @material-ui component
 
 React CRUD Context Providers are also exported for use with GraphQL apis not developed with [@elevatejs/ts-mongo-codegen](https://elevatejs.com/blog/ts-mongo-codegen/).
 
+### [Demo Storybook](https://rphansen91.github.io/material-ui-crud/index?path=/story/mountains--find)
+
+[![Demo Storybook](/example.png)](https://rphansen91.github.io/material-ui-crud/index?path=/story/mountains--find)
+
 ### Usage
 
 ```bash
