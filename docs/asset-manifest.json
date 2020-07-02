@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.js": "/main.3ae4311851234d7446d8.bundle.js",
+    "main.js.map": "/main.3ae4311851234d7446d8.bundle.js.map",
+    "runtime~main.js": "/runtime~main.3ae4311851234d7446d8.bundle.js",
+    "runtime~main.js.map": "/runtime~main.3ae4311851234d7446d8.bundle.js.map",
+    "vendors~main.js": "/vendors~main.3ae4311851234d7446d8.bundle.js",
+    "vendors~main.js.map": "/vendors~main.3ae4311851234d7446d8.bundle.js.map",
+    "../build/lib/src/components/Buttons/Edit.d.ts": "/../build/lib/src/components/Buttons/Edit.d.ts",
+    "../build/lib/src/components/Buttons/Loading.d.ts": "/../build/lib/src/components/Buttons/Loading.d.ts",
+    "../build/lib/src/components/Buttons/index.d.ts": "/../build/lib/src/components/Buttons/index.d.ts",
+    "../build/lib/src/components/Crud/context.d.ts": "/../build/lib/src/components/Crud/context.d.ts",
+    "../build/lib/src/components/Crud/index.d.ts": "/../build/lib/src/components/Crud/index.d.ts",
+    "../build/lib/src/components/Dialog/Confirm.d.ts": "/../build/lib/src/components/Dialog/Confirm.d.ts",
+    "../build/lib/src/components/Dialog/ConfirmRemove.d.ts": "/../build/lib/src/components/Dialog/ConfirmRemove.d.ts",
+    "../build/lib/src/components/Dialog/Insert.d.ts": "/../build/lib/src/components/Dialog/Insert.d.ts",
+    "../build/lib/src/components/Dialog/Update.d.ts": "/../build/lib/src/components/Dialog/Update.d.ts",
+    "../build/lib/src/components/Dialog/index.d.ts": "/../build/lib/src/components/Dialog/index.d.ts",
+    "../build/lib/src/components/Table/Pagination.d.ts": "/../build/lib/src/components/Table/Pagination.d.ts",
+    "../build/lib/src/components/Table/Selected.d.ts": "/../build/lib/src/components/Table/Selected.d.ts",
+    "../build/lib/src/components/Table/Sort.d.ts": "/../build/lib/src/components/Table/Sort.d.ts",
+    "../build/lib/src/components/Table/Toolbar.d.ts": "/../build/lib/src/components/Table/Toolbar.d.ts",
+    "../build/lib/src/components/Table/index.d.ts": "/../build/lib/src/components/Table/index.d.ts",
+    "../build/lib/src/graphql.client.d.ts": "/../build/lib/src/graphql.client.d.ts",
+    "../build/lib/src/graphql.generated.d.ts": "/../build/lib/src/graphql.generated.d.ts",
+    "../build/lib/stories/index.stories.d.ts": "/../build/lib/stories/index.stories.d.ts",
+    "iframe.html": "/iframe.html",
+    "precache-manifest.7eb25779fc59addb28b0ffb08833d256.js": "/precache-manifest.7eb25779fc59addb28b0ffb08833d256.js",
+    "service-worker.js": "/service-worker.js",
+    "vendors~main.3ae4311851234d7446d8.bundle.js.LICENSE.txt": "/vendors~main.3ae4311851234d7446d8.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.3ae4311851234d7446d8.bundle.js",
+    "vendors~main.3ae4311851234d7446d8.bundle.js",
+    "main.3ae4311851234d7446d8.bundle.js"
+  ]
+}

@@ -1,4 +1,4 @@
-schema: '${SCHEMA:http://localhost:9000/gql}'
+schema: "${SCHEMA}"
 documents: ./src/gql/**/*.ts
 overwrite: true
 generates:
