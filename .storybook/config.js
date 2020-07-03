@@ -16,6 +16,7 @@ const theme = create({
 addParameters({
   options: {
     theme, // this is just a workaround for addon-readme
+    panelPosition: "right",
   },
 });
 addDecorator(addReadme);
