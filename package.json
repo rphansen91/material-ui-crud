@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@elevatejs/material-ui-crud",
+  "name": "@elevatejs/material-crud-ui",
   "version": "0.0.1",
   "main": "build/index.umd.js",
   "module": "build/index.es5.js",

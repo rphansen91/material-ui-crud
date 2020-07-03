@@ -57,7 +57,7 @@ const CrudTableReadme = require("../src/components/Crud/CrudTableReadme.md");
 
 const theme = createMuiTheme({
   palette: {
-    // type: "dark",
+    type: "dark",
   },
 });
 

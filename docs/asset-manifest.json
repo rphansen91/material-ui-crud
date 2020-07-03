@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/blog/ts-mongo-codegen/main.0d5a40e355560c1d9338.bundle.js",
-    "main.js.map": "/blog/ts-mongo-codegen/main.0d5a40e355560c1d9338.bundle.js.map",
-    "runtime~main.js": "/blog/ts-mongo-codegen/runtime~main.0d5a40e355560c1d9338.bundle.js",
-    "runtime~main.js.map": "/blog/ts-mongo-codegen/runtime~main.0d5a40e355560c1d9338.bundle.js.map",
-    "vendors~main.js": "/blog/ts-mongo-codegen/vendors~main.0d5a40e355560c1d9338.bundle.js",
-    "vendors~main.js.map": "/blog/ts-mongo-codegen/vendors~main.0d5a40e355560c1d9338.bundle.js.map",
+    "main.js": "/blog/ts-mongo-codegen/main.6c4e2cda1b37f900b37f.bundle.js",
+    "main.js.map": "/blog/ts-mongo-codegen/main.6c4e2cda1b37f900b37f.bundle.js.map",
+    "runtime~main.js": "/blog/ts-mongo-codegen/runtime~main.6c4e2cda1b37f900b37f.bundle.js",
+    "runtime~main.js.map": "/blog/ts-mongo-codegen/runtime~main.6c4e2cda1b37f900b37f.bundle.js.map",
+    "vendors~main.js": "/blog/ts-mongo-codegen/vendors~main.6c4e2cda1b37f900b37f.bundle.js",
+    "vendors~main.js.map": "/blog/ts-mongo-codegen/vendors~main.6c4e2cda1b37f900b37f.bundle.js.map",
     "../build/lib/src/components/Buttons/Edit.d.ts": "/blog/ts-mongo-codegen/../build/lib/src/components/Buttons/Edit.d.ts",
     "../build/lib/src/components/Buttons/Loading.d.ts": "/blog/ts-mongo-codegen/../build/lib/src/components/Buttons/Loading.d.ts",
     "../build/lib/src/components/Buttons/index.d.ts": "/blog/ts-mongo-codegen/../build/lib/src/components/Buttons/index.d.ts",
@@ -25,13 +25,13 @@
     "../build/lib/src/graphql.generated.d.ts": "/blog/ts-mongo-codegen/../build/lib/src/graphql.generated.d.ts",
     "../build/lib/stories/index.stories.d.ts": "/blog/ts-mongo-codegen/../build/lib/stories/index.stories.d.ts",
     "iframe.html": "/blog/ts-mongo-codegen/iframe.html",
-    "precache-manifest.c472733420a0a65551a180a563d1672f.js": "/blog/ts-mongo-codegen/precache-manifest.c472733420a0a65551a180a563d1672f.js",
+    "precache-manifest.0111e0da8cc74dc13e481a452d314413.js": "/blog/ts-mongo-codegen/precache-manifest.0111e0da8cc74dc13e481a452d314413.js",
     "service-worker.js": "/blog/ts-mongo-codegen/service-worker.js",
-    "vendors~main.0d5a40e355560c1d9338.bundle.js.LICENSE.txt": "/blog/ts-mongo-codegen/vendors~main.0d5a40e355560c1d9338.bundle.js.LICENSE.txt"
+    "vendors~main.6c4e2cda1b37f900b37f.bundle.js.LICENSE.txt": "/blog/ts-mongo-codegen/vendors~main.6c4e2cda1b37f900b37f.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.0d5a40e355560c1d9338.bundle.js",
-    "vendors~main.0d5a40e355560c1d9338.bundle.js",
-    "main.0d5a40e355560c1d9338.bundle.js"
+    "runtime~main.6c4e2cda1b37f900b37f.bundle.js",
+    "vendors~main.6c4e2cda1b37f900b37f.bundle.js",
+    "main.6c4e2cda1b37f900b37f.bundle.js"
   ]
 }
