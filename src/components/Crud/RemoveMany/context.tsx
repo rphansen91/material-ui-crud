@@ -15,6 +15,8 @@ import React, {
 
 export type IRemoveManyContext<V = any> = {
   // Remove state
+  idField?: string;
+  typeName?: string;
   confirmRemoveMany?: boolean;
   removingMany?: boolean;
   removeManyError?: string;
@@ -29,6 +31,7 @@ export function useRemoveManyContext<V>(): IRemoveManyContext<V> {
   return useContext(RemoveManyContext);
 }
 export type RemoveManyProviderProps<V> = {
+  idField?: string;
   typeName: string;
   children: ReactNode;
   removeManyDocument: DocumentNode;
@@ -36,6 +39,7 @@ export type RemoveManyProviderProps<V> = {
 };
 
 export function RemoveManyContextProvider<V>({
+  idField = "id",
   typeName,
   children,
   removeManyDocument,
@@ -46,7 +50,7 @@ export function RemoveManyContextProvider<V>({
   const { findDocument, variables } = useFindContext();
   const onRemoveMany = useCallback(
     async (items: V[]) => {
-      const ids = items.map((v) => v?.["id"]);
+      const ids = items.map((v) => v?.[idField]);
       return removeMany({
         variables: { ids },
         // optimisticResponse: {
@@ -58,7 +62,12 @@ export function RemoveManyContextProvider<V>({
               query: findDocument,
               variables,
             });
-            const data = selectRemoveManyCacheWrite(typeName, prev, ids);
+            const data = selectRemoveManyCacheWrite(
+              typeName,
+              prev,
+              ids,
+              idField
+            );
             if (data) {
               cache.writeQuery({
                 query: findDocument,
@@ -74,6 +83,8 @@ export function RemoveManyContextProvider<V>({
   );
   const removeManyContext = useMemo(
     () => ({
+      idField,
+      typeName,
       confirmRemoveMany,
       setConfirmRemoveMany,
       removingMany: remove.loading,
@@ -81,6 +92,8 @@ export function RemoveManyContextProvider<V>({
       onRemoveMany,
     }),
     [
+      idField,
+      typeName,
       confirmRemoveMany,
       setConfirmRemoveMany,
       remove.loading,

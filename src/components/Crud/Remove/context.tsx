@@ -15,6 +15,8 @@ import React, {
 
 export type IRemoveContext<V = any> = {
   // Remove state
+  idField?: string;
+  typeName?: string;
   removeItem?: V | null;
   removing?: boolean;
   removeError?: string;
@@ -29,6 +31,7 @@ export function useRemoveContext<V>(): IRemoveContext<V> {
   return useContext(RemoveContext);
 }
 export type RemoveProviderProps<V> = {
+  idField?: string;
   typeName: string;
   children: ReactNode;
   removeDocument: DocumentNode;
@@ -36,6 +39,7 @@ export type RemoveProviderProps<V> = {
 };
 
 export function RemoveContextProvider<V>({
+  idField = "id",
   typeName,
   children,
   removeDocument,
@@ -46,7 +50,7 @@ export function RemoveContextProvider<V>({
   const { findDocument, variables } = useFindContext();
   const onRemove = useCallback(
     async (item: V) => {
-      const id = item?.["id"];
+      const id = item?.[idField];
       return removeOne({
         variables: { id },
         // optimisticResponse: {
@@ -58,7 +62,7 @@ export function RemoveContextProvider<V>({
               query: findDocument,
               variables,
             });
-            const data = selectRemoveCacheWrite(typeName, prev, id);
+            const data = selectRemoveCacheWrite(typeName, prev, id, idField);
             if (data) {
               cache.writeQuery({
                 query: findDocument,
@@ -70,17 +74,27 @@ export function RemoveContextProvider<V>({
         },
       });
     },
-    [variables, removeOne, findDocument, typeName]
+    [variables, removeOne, findDocument, typeName, idField]
   );
   const removeContext = useMemo(
     () => ({
+      idField,
+      typeName,
       removeItem,
       setRemoveItem,
       removing: remove.loading,
       removeError: remove.error?.message ?? "",
       onRemove,
     }),
-    [removeItem, setRemoveItem, remove.loading, remove.error, onRemove]
+    [
+      idField,
+      typeName,
+      removeItem,
+      setRemoveItem,
+      remove.loading,
+      remove.error,
+      onRemove,
+    ]
   );
   return (
     <RemoveContext.Provider value={removeContext}>

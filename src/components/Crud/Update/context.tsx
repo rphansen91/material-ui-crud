@@ -14,6 +14,7 @@ import React, {
 
 export type IUpdateContext<V = any> = {
   // Update state
+  typeName?: string;
   updateItem?: V | null;
   updating?: boolean;
   updateError?: string;
@@ -37,6 +38,7 @@ export type UpdateProviderProps<V> = {
 };
 
 export function UpdateContextProvider<V>({
+  typeName,
   children,
   updateDocument,
   verifyUpdate,
@@ -53,6 +55,7 @@ export function UpdateContextProvider<V>({
   );
   const updateContext = useMemo(
     () => ({
+      typeName,
       updateItem,
       setUpdateItem,
       setUpdateItemValue: (k: string, v: any) =>
@@ -61,7 +64,14 @@ export function UpdateContextProvider<V>({
       updateError: update.error?.message ?? "",
       onUpdate,
     }),
-    [updateItem, setUpdateItem, update.loading, update.error, onUpdate]
+    [
+      typeName,
+      updateItem,
+      setUpdateItem,
+      update.loading,
+      update.error,
+      onUpdate,
+    ]
   );
   return (
     <UpdateContext.Provider value={updateContext}>

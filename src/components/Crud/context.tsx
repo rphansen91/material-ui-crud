@@ -19,6 +19,7 @@ export type CrudProps<V> = FindProviderProps<V> &
   RemoveManyProviderProps<V>;
 
 export function CrudProvider<V>({
+  idField = "id",
   typeName,
   children,
   variables,
@@ -36,6 +37,7 @@ export function CrudProvider<V>({
 }: CrudProps<V>) {
   return (
     <FindContextProvider
+      idField={idField}
       typeName={typeName}
       findDocument={findDocument}
       variables={variables}
@@ -55,6 +57,7 @@ export function CrudProvider<V>({
           verifyUpdate={verifyUpdate}
         >
           <RemoveManyContextProvider
+            idField={idField}
             typeName={typeName}
             removeManyDocument={removeManyDocument}
             selectRemoveManyCacheWrite={selectRemoveManyCacheWrite}

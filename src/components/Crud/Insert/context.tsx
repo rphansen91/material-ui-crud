@@ -16,6 +16,7 @@ import React, {
 
 export type IInsertContext<V = any> = {
   // Insert state
+  typeName?: string;
   initialItem?: V;
   insertItem?: V | null;
   inserting?: boolean;
@@ -85,6 +86,7 @@ export function InsertContextProvider<V>({
   );
   const insertContext = useMemo(
     () => ({
+      typeName,
       initialItem,
       insertItem,
       setInsertItem,
@@ -95,6 +97,7 @@ export function InsertContextProvider<V>({
       onInsert,
     }),
     [
+      typeName,
       initialItem,
       insertItem,
       setInsertItem,

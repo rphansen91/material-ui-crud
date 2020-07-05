@@ -34,12 +34,13 @@ export function selectInsertCacheWrite(
 export function selectRemoveManyCacheWrite(
   typeName: string,
   prev: any,
-  ids: string[]
+  ids: string[],
+  idField = "id"
 ) {
   const findField = `find${pluralize(typeName)}`;
   const prevResult = prev?.[findField];
   const prevData = prevResult?.data ?? [];
-  const newData = prevData.filter((v: any) => !ids.includes(v?.id));
+  const newData = prevData.filter((v: any) => !ids.includes(v?.[idField]));
   return {
     [findField]: {
       ...prevResult,
@@ -51,12 +52,13 @@ export function selectRemoveManyCacheWrite(
 export function selectRemoveCacheWrite(
   typeName: string,
   prev: any,
-  id: string
+  id: string,
+  idField = "id"
 ) {
   const findField = `find${pluralize(typeName)}`;
   const prevResult = prev?.[findField];
   const prevData = prevResult?.data ?? [];
-  const newData = prevData.filter((v: any) => !id !== v?.id);
+  const newData = prevData.filter((v: any) => !id !== v?.[idField]);
   return {
     [findField]: {
       ...prevResult,
