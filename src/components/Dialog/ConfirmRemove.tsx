@@ -1,30 +1,30 @@
 import React from "react";
 import { ConfirmDialog } from "./Confirm";
-import { useRemoveContext } from "../Crud";
+import { useRemoveManyContext, useRemoveContext } from "../Crud";
 import Typography from "@material-ui/core/Typography";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import { useSelected } from "../Table/Selected";
 
-export const ConfirmRemoveDialog = () => {
+export const ConfirmRemoveManyDialog = () => {
   const [{ selected }, { setSelected }] = useSelected();
   const {
-    confirmRemove,
-    removing,
-    setConfirmRemove,
+    confirmRemoveMany,
+    removingMany,
+    setConfirmRemoveMany,
     onRemoveMany,
-    removeError,
-  } = useRemoveContext();
+    removeManyError,
+  } = useRemoveManyContext();
   return (
     <ConfirmDialog
       title="Confirm Remove"
-      open={!!confirmRemove}
-      loading={!!removing}
-      onClose={() => setConfirmRemove?.(false)}
+      open={!!confirmRemoveMany}
+      loading={!!removingMany}
+      onClose={() => setConfirmRemoveMany?.(false)}
       onConfirm={() => {
         if (onRemoveMany && selected) {
           onRemoveMany(selected)
-            .then(() => setConfirmRemove?.(false))
+            .then(() => setConfirmRemoveMany?.(false))
             .then(() => setSelected([]));
         }
       }}
@@ -33,9 +33,44 @@ export const ConfirmRemoveDialog = () => {
         <DialogContentText>
           Are you sure you would like to delete {selected?.length ?? 0} item
           {selected?.length === 1 ? "" : "s"}
-          <Typography color="error">{removeError}</Typography>
+          <Typography color="error">{removeManyError}</Typography>
         </DialogContentText>
       </DialogContent>
     </ConfirmDialog>
   );
 };
+
+export function ConfirmRemoveDialog<V>({
+  getName = (v: V) => "",
+}: {
+  getName: (v: V) => string;
+}) {
+  const {
+    removeItem,
+    removing,
+    setRemoveItem,
+    onRemove,
+    removeError,
+  } = useRemoveContext<V>();
+  return (
+    <ConfirmDialog
+      title="Confirm Remove"
+      open={!!removeItem}
+      loading={!!removing}
+      onClose={() => setRemoveItem?.(null)}
+      onConfirm={() => {
+        if (onRemove && removeItem) {
+          onRemove(removeItem).then(() => setRemoveItem?.(null));
+        }
+      }}
+    >
+      <DialogContent>
+        <DialogContentText>
+          Are you sure you would like to delete{" "}
+          {removeItem ? getName(removeItem) : null}
+          <Typography color="error">{removeError}</Typography>
+        </DialogContentText>
+      </DialogContent>
+    </ConfirmDialog>
+  );
+}

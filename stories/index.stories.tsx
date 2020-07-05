@@ -50,6 +50,7 @@ import {
   InsertMountainDocument,
   Mountain,
   RemoveManyMountainsDocument,
+  RemoveMountainDocument,
   UpdateMountainDocument,
   useFindMountainByIdQuery,
 } from "../src/graphql.generated";
@@ -139,7 +140,7 @@ storiesOf("Mountains", module)
       <Base>
         <RemoveContextProvider<Mountain | null>
           typeName="Mountain"
-          removeManyDocument={RemoveManyMountainsDocument}
+          removeDocument={RemoveMountainDocument}
         >
           <Box p={2}>
             <MountainDetails id="5ef9228676b2b516e66dcacc" />
@@ -357,7 +358,7 @@ function MountainFormUpdate({ id }: { id: string }) {
 }
 
 function MountainDetails({ id }: { id: string }) {
-  const { setConfirmRemove } = useRemoveContext();
+  const { setRemoveItem } = useRemoveContext();
   const { data, loading } = useFindMountainByIdQuery({
     variables: {
       id,
@@ -392,7 +393,7 @@ function MountainDetails({ id }: { id: string }) {
           <Box p={1} width="100%">
             <LoadingButton
               variant="contained"
-              onClick={() => setConfirmRemove?.(true)}
+              onClick={() => setRemoveItem?.(mountain)}
               color="primary"
               fullWidth
             >
@@ -401,7 +402,9 @@ function MountainDetails({ id }: { id: string }) {
           </Box>
         </CardActions>
       </Card>
-      <ConfirmRemoveDialog />
+      <ConfirmRemoveDialog<Mountain>
+        getName={(mountain) => mountain?.name ?? ""}
+      />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { ComponentType } from "react";
 import { TableCard, TableToolbar, Table } from "../Table";
-import { ConfirmRemoveDialog, InsertDialog, UpdateDialog } from "../Dialog";
+import { ConfirmRemoveManyDialog, InsertDialog, UpdateDialog } from "../Dialog";
 import { FormComponent } from "components/Form";
 
 export * from "./context";
@@ -23,7 +23,7 @@ export function CrudTable<V>({
       <TableCard header={<TableToolbar title={title} />}>
         <Table<V | null> head={<Head />} renderRow={renderRow} />
       </TableCard>
-      <ConfirmRemoveDialog />
+      <ConfirmRemoveManyDialog />
       <InsertDialog<V> form={Form} />
       <UpdateDialog<V> form={Form} />
     </>

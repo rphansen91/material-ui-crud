@@ -13,23 +13,23 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import cx from "classnames";
 import React from "react";
-import { useRemoveContext, useInsertContext } from "../Crud";
+import { useRemoveManyContext, useInsertContext } from "../Crud";
 import { useSelected } from "./Selected";
 
 export function TableToolbar<V>({ title }: { title: string }) {
   const classes = useToolbarStyles();
   const [{ selected }] = useSelected();
-  const { onRemoveMany, setConfirmRemove } = useRemoveContext<V>();
+  const { onRemoveMany, setConfirmRemoveMany } = useRemoveManyContext<V>();
   const { setInsertItem, initialItem } = useInsertContext<V>();
   const numSelected = selected?.length ?? 0;
   return (
     <Toolbar
       className={cx(classes.root, {
         [classes.highlight]:
-          setConfirmRemove && onRemoveMany && numSelected > 0,
+          setConfirmRemoveMany && onRemoveMany && numSelected > 0,
       })}
     >
-      {setConfirmRemove && onRemoveMany && numSelected > 0 ? (
+      {setConfirmRemoveMany && onRemoveMany && numSelected > 0 ? (
         <Typography
           className={classes.title}
           color="inherit"
@@ -48,11 +48,11 @@ export function TableToolbar<V>({ title }: { title: string }) {
           {title}
         </Typography>
       )}
-      {setConfirmRemove && onRemoveMany && numSelected > 0 ? (
+      {setConfirmRemoveMany && onRemoveMany && numSelected > 0 ? (
         <Tooltip title="Remover">
           <IconButton
             aria-label="remove"
-            onClick={() => setConfirmRemove(true)}
+            onClick={() => setConfirmRemoveMany(true)}
           >
             <DeleteIcon />
           </IconButton>
