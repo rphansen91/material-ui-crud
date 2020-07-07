@@ -14,6 +14,7 @@ import { Paginate } from "./Pagination";
 
 export * from "./Pagination";
 export * from "./Selected";
+export * from "./Search";
 export * from "./Sort";
 export * from "./Toolbar";
 

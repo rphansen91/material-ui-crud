@@ -9,7 +9,7 @@ const sortState = {
 const sortActions = (field: string, order: number) => {
   console.warn("SortProvider not found");
 };
-type ISortContext = [typeof sortState, typeof sortActions | undefined];
+export type ISortContext = [typeof sortState, typeof sortActions | undefined];
 export const SortContext = createContext<ISortContext>([
   sortState,
   undefined,
