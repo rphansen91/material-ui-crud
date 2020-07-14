@@ -33,9 +33,12 @@ export const PaginationContext = createContext<IPaginationContext>([
   paginationActions,
 ]);
 
-export const PaginationProvider: FC = ({ children }) => {
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(10);
+export const PaginationProvider: FC<{
+  initialPage?: number;
+  initialPerPage?: number;
+}> = ({ children, initialPage = 1, initialPerPage = 10 }) => {
+  const [page, setPage] = useState(initialPage);
+  const [perPage, setPerPage] = useState(initialPerPage);
   const value = useMemo(() => {
     return [
       { page, perPage },

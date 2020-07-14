@@ -14,7 +14,6 @@ import { Paginate } from "./Pagination";
 
 export * from "./Pagination";
 export * from "./Selected";
-export * from "./Search";
 export * from "./Sort";
 export * from "./Toolbar";
 
@@ -26,7 +25,7 @@ export function Table<V>({
   head: ReactNode;
   renderRow: (v: V, i: number) => ReactNode;
 }) {
-  const { data } = useFindContext();
+  const { data } = useFindContext<V[]>();
   return (
     <MuiTable {...props}>
       <TableHead>{head}</TableHead>

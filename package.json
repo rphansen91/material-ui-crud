@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@elevatejs/material-crud-ui",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "main": "build/index.umd.js",
   "module": "build/index.es5.js",
   "typings": "build/lib/index.d.ts",

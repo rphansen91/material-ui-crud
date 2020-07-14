@@ -15,7 +15,10 @@ const searchActions = {
 };
 
 export type ISearchContext = [typeof searchState, typeof searchActions];
-export const SearchContext = createContext([searchState, searchActions]);
+export const SearchContext = createContext<ISearchContext>([
+  searchState,
+  searchActions,
+]);
 
 export const SearchProvider: FC = ({ children }) => {
   const [searchText, setSearchText] = useState("");
@@ -31,3 +34,5 @@ export const SearchProvider: FC = ({ children }) => {
     </SearchContext.Provider>
   );
 };
+
+export const useSearch = () => useContext(SearchContext);

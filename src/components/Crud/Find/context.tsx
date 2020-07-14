@@ -1,4 +1,4 @@
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, QueryHookOptions } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import React, { createContext, ReactNode, useContext, useMemo } from "react";
 import {
@@ -9,7 +9,7 @@ import {
 export type IFindContext<V = any, A = any> = {
   idField?: string;
   typeName?: string;
-  data: V[];
+  data: V;
   total: number;
   loading: boolean;
   error: string;
@@ -35,6 +35,7 @@ export type FindProviderProps<V> = {
   variables: any;
   children: ReactNode;
   findDocument: DocumentNode;
+  options?: QueryHookOptions;
   selectFindData?: typeof defaultSelectFindData;
   selectFindTotal?: typeof defaultSelectFindTotal;
 };
@@ -47,8 +48,9 @@ export function FindContextProvider<V>({
   findDocument,
   selectFindData = defaultSelectFindData,
   selectFindTotal = defaultSelectFindTotal,
+  options,
 }: FindProviderProps<V>) {
-  const find = useQuery(findDocument, { variables });
+  const find = useQuery(findDocument, { variables, ...options });
   const findContext = useMemo(
     () => ({
       idField,

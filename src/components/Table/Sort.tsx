@@ -6,23 +6,32 @@ const sortState = {
   field: "",
   order: -1,
 };
-const sortActions = (field: string, order: number) => {
-  console.warn("SortProvider not found");
+const sortActions = {
+  setSort: (field: string, order: -1 | 1) => {
+    console.warn("SortProvider not found");
+  },
 };
-export type ISortContext = [typeof sortState, typeof sortActions | undefined];
+export type ISortContext = [typeof sortState, typeof sortActions];
 export const SortContext = createContext<ISortContext>([
   sortState,
-  undefined,
-  // sortActions,
+  sortActions,
 ]);
 
-export const SortProvider: FC = ({ children }) => {
-  const [sort, setSort] = useState(sortState);
-  const action = (field: string, order = 1) => {
-    setSort({ field, order });
+export const SortProvider: FC<{
+  initialField?: string;
+  initialOrder?: -1 | 1;
+}> = ({ children, initialField = "", initialOrder = -1 }) => {
+  const [sort, setState] = useState({
+    field: initialField,
+    order: initialOrder,
+  });
+  const actions = {
+    setSort: (field: string, order: -1 | 1 = 1) => {
+      setState({ field, order });
+    },
   };
   return (
-    <SortContext.Provider value={[sort, action]}>
+    <SortContext.Provider value={[sort, actions]}>
       {children}
     </SortContext.Provider>
   );
@@ -36,7 +45,7 @@ export const HeadSortCell: FC<TableCellProps & { field: string }> = ({
   padding,
   children,
 }) => {
-  const [sort, setSort] = useSort();
+  const [sort, { setSort }] = useSort();
   const active = field === sort.field;
   const sortDirection = active
     ? sort.order === -1
@@ -46,20 +55,15 @@ export const HeadSortCell: FC<TableCellProps & { field: string }> = ({
   const handleSort = () => {
     setSort?.(field, sort.order === -1 ? 1 : -1);
   };
-  const label = setSort ? (
-    <TableSortLabel
-      active={active}
-      direction={sortDirection}
-      onClick={handleSort}
-    >
-      {children}
-    </TableSortLabel>
-  ) : (
-    children
-  );
   return (
     <TableCell align={align} padding={padding} sortDirection={sortDirection}>
-      {label}
+      <TableSortLabel
+        active={active}
+        direction={sortDirection}
+        onClick={handleSort}
+      >
+        {children}
+      </TableSortLabel>
     </TableCell>
   );
 };

@@ -73,7 +73,7 @@ export function CheckboxHeaderRow<V = any>({
 }: CheckboxHeaderRowProps) {
   const [{ selected }, { setSelected }] = useSelected<V>();
   const [{ perPage }] = usePagination();
-  const { total, data } = useFindContext<V>();
+  const { total, data } = useFindContext<V[]>();
   const onSelectAllClick = () => {
     setSelected(data.filter((item) => !selected?.includes(item)));
   };
