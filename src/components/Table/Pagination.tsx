@@ -1,4 +1,5 @@
 import React, {
+  ElementType,
   createContext,
   useContext,
   useState,
@@ -61,7 +62,13 @@ export const PaginationProvider: FC<{
 
 export const usePagination = () => useContext(PaginationContext);
 
-export const Paginate = ({ rowsPerPageOptions }: { rowsPerPageOptions?: number[] }) => {
+export const Paginate = ({
+  rowsPerPageOptions,
+  component = "td",
+}: {
+  rowsPerPageOptions?: number[];
+  component?: ElementType<any>;
+}) => {
   const [
     { page, perPage },
     { onChangePage, onChangeRowsPerPage },
@@ -77,6 +84,7 @@ export const Paginate = ({ rowsPerPageOptions }: { rowsPerPageOptions?: number[]
       onChangePage={onChangePage}
       onChangeRowsPerPage={onChangeRowsPerPage}
       rowsPerPageOptions={rowsPerPageOptions}
+      component={component}
     />
   );
 };
