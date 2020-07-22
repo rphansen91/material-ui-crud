@@ -61,7 +61,7 @@ export const PaginationProvider: FC<{
 
 export const usePagination = () => useContext(PaginationContext);
 
-export const Paginate = () => {
+export const Paginate = ({ rowsPerPageOptions }: { rowsPerPageOptions?: number[] }) => {
   const [
     { page, perPage },
     { onChangePage, onChangeRowsPerPage },
@@ -76,6 +76,7 @@ export const Paginate = () => {
       count={total}
       onChangePage={onChangePage}
       onChangeRowsPerPage={onChangeRowsPerPage}
+      rowsPerPageOptions={rowsPerPageOptions}
     />
   );
 };

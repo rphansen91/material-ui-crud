@@ -14,6 +14,7 @@ export type IFindContext<V = any, A = any> = {
   loading: boolean;
   error: string;
   findDocument?: DocumentNode;
+  refetch?: () => any;
   variables?: A;
 };
 
@@ -58,6 +59,7 @@ export function FindContextProvider<V>({
       total: selectFindTotal(typeName, find.data),
       data: selectFindData(typeName, find.data),
       error: find.error?.message ?? "",
+      refetch: find.refetch,
       loading: find.loading,
       findDocument,
       variables,
@@ -68,6 +70,7 @@ export function FindContextProvider<V>({
       find.data,
       find.error,
       find.loading,
+      find.refetch,
       findDocument,
       variables,
     ]
