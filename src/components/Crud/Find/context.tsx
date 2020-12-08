@@ -6,7 +6,10 @@ import {
   selectFindTotal as defaultSelectFindTotal,
 } from "../utils";
 
-export type IFindContext<V = any, A = any> = {
+export type IFindContext<V = any, A = any> = Omit<
+  Omit<Omit<ReturnType<typeof useQuery>, "error">, "data">,
+  "loading"
+> & {
   idField?: string;
   typeName?: string;
   data: V;
@@ -23,6 +26,22 @@ export const FindContext = createContext<IFindContext>({
   total: 0,
   error: "",
   loading: false,
+  variables: {},
+  startPolling: () => console.warn("FindContext not supplied"),
+  stopPolling: () => console.warn("FindContext not supplied"),
+  subscribeToMore: () => {
+    throw new Error("FindContext not supplied");
+  },
+  updateQuery: () => console.warn("FindContext not supplied"),
+  refetch: () => {
+    throw new Error("FindContext not supplied");
+  },
+  client: null as any,
+  networkStatus: 0,
+  called: false,
+  fetchMore: () => {
+    throw new Error("FindContext not supplied");
+  },
 });
 
 export function useFindContext<V>(): IFindContext<V> {
@@ -53,6 +72,7 @@ export function FindContextProvider<V>({
   const find = useQuery(findDocument, { variables, ...options });
   const findContext = useMemo(
     () => ({
+      ...find,
       idField,
       typeName,
       total: selectFindTotal(typeName, find.data),
